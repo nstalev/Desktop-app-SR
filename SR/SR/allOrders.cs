@@ -16,5 +16,12 @@ namespace SR
         {
             InitializeComponent();
         }
+
+        private void btn_Main3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var Main = new Main();
+            Main.Show();
+        }
     }
 }
