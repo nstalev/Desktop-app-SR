@@ -10,7 +10,12 @@ namespace SR.Models.Orders
     {
         public Order()
         {
+
         }
+
+        public int Id { get; set; }
+
+        public string Name { get; set; }
 
 
     }

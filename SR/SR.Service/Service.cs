@@ -13,6 +13,7 @@ namespace SR.Service
         {
             this.Context = new SRContext();
         }
+
         protected SRContext Context { get; }
 
     }
