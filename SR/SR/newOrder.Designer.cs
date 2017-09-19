@@ -254,6 +254,7 @@
             this.btn_Main2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label92 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -2262,14 +2263,15 @@
             // 
             this.textBox126.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox126.Location = new System.Drawing.Point(145, 6640);
+            this.textBox126.Multiline = true;
             this.textBox126.Name = "textBox126";
-            this.textBox126.Size = new System.Drawing.Size(111, 26);
+            this.textBox126.Size = new System.Drawing.Size(111, 23);
             this.textBox126.TabIndex = 221;
             // 
             // btn_Save
             // 
             this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_Save.Location = new System.Drawing.Point(695, 6708);
+            this.btn_Save.Location = new System.Drawing.Point(625, 6608);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(120, 55);
             this.btn_Save.TabIndex = 223;
@@ -2279,7 +2281,7 @@
             // btn_Main2
             // 
             this.btn_Main2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_Main2.Location = new System.Drawing.Point(569, 6708);
+            this.btn_Main2.Location = new System.Drawing.Point(499, 6608);
             this.btn_Main2.Name = "btn_Main2";
             this.btn_Main2.Size = new System.Drawing.Size(120, 55);
             this.btn_Main2.TabIndex = 224;
@@ -2306,12 +2308,25 @@
             this.pictureBox2.TabIndex = 226;
             this.pictureBox2.TabStop = false;
             // 
+            // label92
+            // 
+            this.label92.BackColor = System.Drawing.Color.Red;
+            this.label92.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label92.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label92.Location = new System.Drawing.Point(12, 6692);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(1319, 21);
+            this.label92.TabIndex = 227;
+            this.label92.Text = "Stoyan Radichev CopyRight Reserved 2017";
+            this.label92.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // newOrder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1353, 917);
+            this.Controls.Add(this.label92);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_Main2);
@@ -2774,5 +2789,6 @@
         private System.Windows.Forms.Button btn_Main2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label92;
     }
 }
