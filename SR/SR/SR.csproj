@@ -58,18 +58,6 @@
     <Compile Include="calcHours.Designer.cs">
       <DependentUpon>calcHours.cs</DependentUpon>
     </Compile>
-    <Compile Include="deleteOrders.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="deleteOrders.Designer.cs">
-      <DependentUpon>deleteOrders.cs</DependentUpon>
-    </Compile>
-    <Compile Include="editOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="editOrder.Designer.cs">
-      <DependentUpon>editOrder.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,24 +76,6 @@
     <Compile Include="newOrder.Designer.cs">
       <DependentUpon>newOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="newOrder2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="newOrder2.Designer.cs">
-      <DependentUpon>newOrder2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="newOrder3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="newOrder3.Designer.cs">
-      <DependentUpon>newOrder3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="newOrder4.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="newOrder4.Designer.cs">
-      <DependentUpon>newOrder4.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="allOrders.resx">
@@ -113,12 +83,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="calcHours.resx">
       <DependentUpon>calcHours.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="deleteOrders.resx">
-      <DependentUpon>deleteOrders.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="editOrder.resx">
-      <DependentUpon>editOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -128,15 +92,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="newOrder.resx">
       <DependentUpon>newOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="newOrder2.resx">
-      <DependentUpon>newOrder2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="newOrder3.resx">
-      <DependentUpon>newOrder3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="newOrder4.resx">
-      <DependentUpon>newOrder4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -23,15 +23,16 @@ namespace SR
         {
 
         }
-
-        private void btn_nextPage_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var newOrder2 = new newOrder2();
-            newOrder2.Show();
-        }
+     
 
         private void btn_Main_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var Main = new Main();
+            Main.Show();
+        }
+
+        private void btn_Main2_Click(object sender, EventArgs e)
         {
             this.Hide();
             var Main = new Main();

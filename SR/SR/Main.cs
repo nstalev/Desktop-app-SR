@@ -24,12 +24,6 @@ namespace SR
             newOrder.Show();
         }
 
-        private void editOrder_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var editOrder = new editOrder();
-            editOrder.Show();
-        }
 
         private void allOrders_Click(object sender, EventArgs e)
         {
@@ -45,11 +39,5 @@ namespace SR
             calcHours.Show();
         }
 
-        private void deleteOrders_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var deleteOrders = new deleteOrders();
-            deleteOrders.Show();
-        }
     }
 }
