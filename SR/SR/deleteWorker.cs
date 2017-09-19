@@ -10,14 +10,23 @@ using System.Windows.Forms;
 
 namespace SR
 {
-    public partial class calcHours : Form
+    public partial class deleteWorker : Form
     {
-        public calcHours()
+        public deleteWorker()
         {
             InitializeComponent();
+
+            comboBox1.Items.Add("Иван");
+            comboBox1.Items.Add("Драган");
+            comboBox1.Items.Add("Петкан");
         }
 
-        private void btn_Main6_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_Main5_Click(object sender, EventArgs e)
         {
             this.Hide();
             var Main = new Main();

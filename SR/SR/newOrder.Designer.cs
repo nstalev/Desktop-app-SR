@@ -2277,6 +2277,7 @@
             this.btn_Save.TabIndex = 223;
             this.btn_Save.Text = "Запиши";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_Main2
             // 

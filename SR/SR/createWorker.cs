@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace SR
 {
-    public partial class calcHours : Form
+    public partial class createWorker : Form
     {
-        public calcHours()
+        public createWorker()
         {
             InitializeComponent();
         }
 
-        private void btn_Main6_Click(object sender, EventArgs e)
+        private void btn_Main4_Click(object sender, EventArgs e)
         {
             this.Hide();
             var Main = new Main();

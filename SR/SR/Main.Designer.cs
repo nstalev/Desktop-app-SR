@@ -85,6 +85,7 @@
             this.btn_createWorker.TabIndex = 6;
             this.btn_createWorker.Text = "Създай работник";
             this.btn_createWorker.UseVisualStyleBackColor = true;
+            this.btn_createWorker.Click += new System.EventHandler(this.btn_createWorker_Click);
             // 
             // btn_deleteWorker
             // 
@@ -94,6 +95,7 @@
             this.btn_deleteWorker.TabIndex = 7;
             this.btn_deleteWorker.Text = "Изтрий работник";
             this.btn_deleteWorker.UseVisualStyleBackColor = true;
+            this.btn_deleteWorker.Click += new System.EventHandler(this.btn_deleteWorker_Click);
             // 
             // Main
             // 

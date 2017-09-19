@@ -38,5 +38,10 @@ namespace SR
             var Main = new Main();
             Main.Show();
         }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
