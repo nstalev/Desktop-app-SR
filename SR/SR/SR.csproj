@@ -33,6 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF5, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,23 +57,17 @@
     <Compile Include="allOrders.Designer.cs">
       <DependentUpon>allOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="allWorkers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="allWorkers.Designer.cs">
+      <DependentUpon>allWorkers.cs</DependentUpon>
+    </Compile>
     <Compile Include="calcHours.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="calcHours.Designer.cs">
       <DependentUpon>calcHours.cs</DependentUpon>
-    </Compile>
-    <Compile Include="createWorker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="createWorker.Designer.cs">
-      <DependentUpon>createWorker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="deleteWorker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="deleteWorker.Designer.cs">
-      <DependentUpon>deleteWorker.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -93,14 +92,11 @@
     <EmbeddedResource Include="allOrders.resx">
       <DependentUpon>allOrders.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="allWorkers.resx">
+      <DependentUpon>allWorkers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="calcHours.resx">
       <DependentUpon>calcHours.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="createWorker.resx">
-      <DependentUpon>createWorker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="deleteWorker.resx">
-      <DependentUpon>deleteWorker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

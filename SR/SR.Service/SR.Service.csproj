@@ -54,12 +54,6 @@
     <Compile Include="Service.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SR.Data\SR.Data.csproj">
-      <Project>{C11992D0-F153-4A15-8DD3-4D0654DFE776}</Project>
-      <Name>SR.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>

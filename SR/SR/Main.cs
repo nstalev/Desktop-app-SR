@@ -41,18 +41,11 @@ namespace SR
             MessageBox.Show("Това накрая ще го правим");
         }
 
-        private void btn_createWorker_Click(object sender, EventArgs e)
+        private void btn_manageWorkers_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var createWorker = new createWorker();
-            createWorker.Show();
-        }
-
-        private void btn_deleteWorker_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var deleteWorker = new deleteWorker();
-            deleteWorker.Show();
+            var allWorkers = new allWorkers();
+            allWorkers.Show();
         }
     }
 }
