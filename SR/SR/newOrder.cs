@@ -24,7 +24,6 @@ namespace SR
             InitializeComponent();
             connection = new MySqlConnection(MyConnectionString);
             service = new OrderService();
-            //this.Size = new Size(1400, 1148);  
         }
 
         private void newOrder_Load(object sender, EventArgs e)
@@ -47,8 +46,26 @@ namespace SR
             Main.Show();
         }
 
+        //----------CREATE NEW ORDER------------------------
         private void btn_Save_Click(object sender, EventArgs e)
         {
+            connection.Open();
+
+            string createQuery = service.CreateNewOrder(textBox1.Text,
+                                                   textBox2.Text,
+                                                   textBox3.Text,
+                                                   textBox4.Text,
+                                                   textBox5.Text
+              );
+
+
+            using (connection)
+            {
+                MySqlCommand cmd = new MySqlCommand(createQuery, connection);
+                cmd.ExecuteNonQuery();
+            }
+
+        
 
         }
     }
