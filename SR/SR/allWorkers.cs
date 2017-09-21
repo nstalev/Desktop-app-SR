@@ -20,6 +20,7 @@ namespace SR
         MySqlConnection connection;
         string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';";
 
+
         public allWorkers()
         {
             InitializeComponent();
@@ -27,7 +28,6 @@ namespace SR
             connection = new MySqlConnection(MyConnectionString);
             service = new WorkerService();
         }
-
 
         private void btn_Main6_Click(object sender, EventArgs e)
         {
@@ -38,7 +38,6 @@ namespace SR
 
         private void btn_createWorker_Click(object sender, EventArgs e)
         {
-            //MySqlConnection connection = new MySqlConnection(MyConnectionString);
             MySqlCommand cmd;
             connection.Open();
           
@@ -47,9 +46,8 @@ namespace SR
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Вие създадохте нов работник с име: " + textBox1.Text);
 
-            string selectWorker = "SELECT * FROM workers";
 
-            MySqlCommand command = new MySqlCommand(selectWorker, connection);
+            MySqlCommand command = new MySqlCommand(service.GetAllWorkers(), connection);
             MySqlDataAdapter da = new MySqlDataAdapter(command);
             using (DataTable dt = new DataTable())
             {
@@ -71,32 +69,63 @@ namespace SR
 
         private void btn_deleteWorker_Click(object sender, EventArgs e)
         {
-            
+            MySqlCommand cmd;
+            connection.Open();
+
+
+            string deleteWorker = comboBox1.SelectedItem.ToString();
+
+            cmd = connection.CreateCommand();
+            cmd.CommandText = service.DeleteWorker(deleteWorker);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Вие изтрихте работник с име: " + deleteWorker);
+
+
+            MySqlCommand command = new MySqlCommand(service.DeleteWorker(deleteWorker), connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(command);
+            using (DataTable dt = new DataTable())
+            {
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            connection.Close();
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-        //   MySqlCommand cmd;
-        //   string selectQuery = "SELECT * FROM workers";
-        //
-        //   connection.Open();
-        //   MySqlCommand command = new MySqlCommand(selectQuery, connection);
-        //   cmd = connection.CreateCommand();
-        //   cmd.CommandText = selectQuery;
-        //   cmd.ExecuteNonQuery();
-        //   MySqlDataAdapter da = new MySqlDataAdapter(command);
-        //
-        //   DataTable dt = new DataTable();
-        //   da.Fill(dt);
-        //   foreach (DataRow row in dt.Rows)
-        //   {
-        //       string rowz = string.Format("{0}", row.ItemArray[0]);
-        //       comboBox1.Items.Add(rowz);
-        //       comboBox1.AutoCompleteCustomSource.Add(row.ItemArray[0].ToString());
-        //   }
-        //
-        //   connection.Close();
+
+            // MySqlCommand cmd;
+            // connection.Open();
+            //
+            // cmd = connection.CreateCommand();
+            // cmd.CommandText = service.selectOnlyWorkerName();
+            // cmd.ExecuteNonQuery();
+            //
+            // MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
+            // using (var reader = command.ExecuteReader())
+            // {
+            //     SuspendLayout();
+            //     while (reader.Read())
+            //     {
+            //         comboBox1.Items.Add(reader["worker_name"]);
+            //     }
+            //     ResumeLayout();
+            // }
+
+            connection.Open();
+            MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(command);
+          
+            using (DataTable dt = new DataTable())
+            {
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    comboBox1.Items.Add(dr["worker_name"]);
+                }
+            }
+            connection.Close();
         }
     }
 }

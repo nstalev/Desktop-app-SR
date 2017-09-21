@@ -47,5 +47,10 @@ namespace SR
             var allWorkers = new allWorkers();
             allWorkers.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

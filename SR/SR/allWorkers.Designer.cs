@@ -117,6 +117,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(351, 28);
             this.comboBox1.TabIndex = 7;
+            this.comboBox1.DropDown += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btn_deleteWorker
@@ -134,7 +135,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 228);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(202, 441);
+            this.dataGridView1.Size = new System.Drawing.Size(241, 441);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.AllowUserToAddRowsChanged += new System.EventHandler(this.btn_createWorker_Click);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

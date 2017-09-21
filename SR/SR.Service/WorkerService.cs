@@ -14,5 +14,20 @@ namespace SR.Service
             return "INSERT INTO workers(worker_name) VALUES('" + textBox + "')";
         }
 
+
+        public string GetAllWorkers()
+        {
+            return "SELECT * FROM workers";
+        }
+
+        public string DeleteWorker(string comboBox)
+        {
+            return $"DELETE FROM workers WHERE worker_name = '{comboBox}'";
+        }
+
+        public string selectOnlyWorkerName()
+        {
+            return "SELECT worker_name FROM workers";
+        }   
     }
 }
