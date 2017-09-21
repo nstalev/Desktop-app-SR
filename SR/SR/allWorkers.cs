@@ -27,6 +27,7 @@ namespace SR
 
             connection = new MySqlConnection(MyConnectionString);
             service = new WorkerService();
+            ShowAllWorkers();
         }
 
         private void btn_Main6_Click(object sender, EventArgs e)
@@ -46,14 +47,9 @@ namespace SR
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Вие създадохте нов работник с име: " + textBox1.Text);
 
+            textBox1.ResetText();
+            ShowAllWorkers();
 
-            MySqlCommand command = new MySqlCommand(service.GetAllWorkers(), connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-            using (DataTable dt = new DataTable())
-            {
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-            }
             connection.Close();
         }
 
@@ -90,33 +86,19 @@ namespace SR
             }
             connection.Close();
 
+            comboBox1.Items.Clear();
+            comboBox1.ResetText();
+            ShowAllWorkers();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            // MySqlCommand cmd;
-            // connection.Open();
-            //
-            // cmd = connection.CreateCommand();
-            // cmd.CommandText = service.selectOnlyWorkerName();
-            // cmd.ExecuteNonQuery();
-            //
-            // MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
-            // using (var reader = command.ExecuteReader())
-            // {
-            //     SuspendLayout();
-            //     while (reader.Read())
-            //     {
-            //         comboBox1.Items.Add(reader["worker_name"]);
-            //     }
-            //     ResumeLayout();
-            // }
+            //comboBox1.Items.Clear();
 
             connection.Open();
             MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
             MySqlDataAdapter da = new MySqlDataAdapter(command);
-          
+
             using (DataTable dt = new DataTable())
             {
                 da.Fill(dt);
@@ -124,6 +106,23 @@ namespace SR
                 {
                     comboBox1.Items.Add(dr["worker_name"]);
                 }
+            }
+            connection.Close();
+        }
+
+        public void ShowAllWorkers()
+        {
+            connection = new MySqlConnection(MyConnectionString);
+            connection.Open();
+
+            string selectWorker = service.GetAllWorkers();
+
+            MySqlCommand command = new MySqlCommand(selectWorker, connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(command);
+            using (DataTable dt = new DataTable())
+            {
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
             }
             connection.Close();
         }
