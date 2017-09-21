@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using SR.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +14,17 @@ namespace SR
 {
     public partial class newOrder : Form
     {
+
+        private OrderService service;
+        MySqlConnection connection;
+        string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';";
+
         public newOrder()
         {
             InitializeComponent();
-
-           //this.Size = new Size(1400, 1148);  
+            connection = new MySqlConnection(MyConnectionString);
+            service = new OrderService();
+            //this.Size = new Size(1400, 1148);  
         }
 
         private void newOrder_Load(object sender, EventArgs e)

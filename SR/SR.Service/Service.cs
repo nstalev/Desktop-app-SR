@@ -9,12 +9,14 @@ namespace SR.Service
 {
     public abstract class Service
     {
-        public Service()
-        {
-            this.Context = new SRContext();
-        }
+       // MySqlConnection connection;
+       //
+       // string MyConnectionString = "Server=localhost;Database=srdb;Uid=root;Pwd='';";
+       // public Service()
+       // {
+       //     connection = new MySqlConnection(MyConnectionString);
+       // }
 
-        protected SRContext Context { get; }
 
     }
 }

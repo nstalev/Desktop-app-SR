@@ -10,20 +10,24 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using System.Data.Common;
+using SR.Service;
 
 namespace SR
 {
     public partial class allWorkers : Form
     {
+        private WorkerService service;
         MySqlConnection connection;
+        string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';";
+
         public allWorkers()
         {
             InitializeComponent();
 
             connection = new MySqlConnection(MyConnectionString);
+            service = new WorkerService();
         }
 
-        string MyConnectionString = "Server=localhost;Database=srdb;Uid=root;Pwd='';";
 
         private void btn_Main6_Click(object sender, EventArgs e)
         {
@@ -38,9 +42,8 @@ namespace SR
             MySqlCommand cmd;
             connection.Open();
           
-                string insertWorker = "INSERT INTO workers(Names) VALUES('" + textBox1.Text + "')";
                 cmd = connection.CreateCommand();
-                cmd.CommandText = insertWorker;
+                cmd.CommandText = service.CreateWorker(textBox1.Text);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Вие създадохте нов работник с име: " + textBox1.Text);
 
