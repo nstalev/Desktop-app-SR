@@ -30,7 +30,7 @@ namespace SR
         {
 
         }
-     
+
 
         private void btn_Main_Click(object sender, EventArgs e)
         {
@@ -55,8 +55,13 @@ namespace SR
             string test_date = DateTime.Now.ToString("yyyyMMdd");
             string weding_date = DateTime.Now.ToString("yyyyMMdd");
 
-            string cutoutdress_worker = comboBox3.SelectedItem.ToString();
-            int cutoutdress_worker_id = service.GetWorkerId(cutoutdress_worker);
+            string cutoutdress_worker;
+            int cutoutdress_worker_id;
+            if (comboBox3.SelectedItem != null)
+            {
+                cutoutdress_worker = comboBox3.SelectedItem.ToString();
+                cutoutdress_worker_id = service.GetWorkerId(cutoutdress_worker);
+            }
 
 
 
@@ -70,7 +75,13 @@ namespace SR
               );
 
 
-           
+            using (connection)
+            {
+                MySqlCommand cmd = new MySqlCommand(createQuery, connection);
+                cmd.ExecuteNonQuery();
+            }
+
+
 
             this.Hide();
             var allOrders = new allOrders();
@@ -94,7 +105,7 @@ namespace SR
                 }
             }
 
-            
+
             connection.Close();
         }
 
