@@ -68,5 +68,51 @@ namespace SR
         
 
         }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+            MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(command);
+
+            using (DataTable dt = new DataTable())
+            {
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    comboBox3.Items.Add(dr["worker_name"]);
+                }
+            }
+            connection.Close();
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connection.Open();
+            MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(command);
+
+            using (DataTable dt = new DataTable())
+            {
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    comboBox4.Items.Add(dr["worker_name"]);
+                }
+            }
+            connection.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox1.Items.Add("Да");
+            comboBox1.Items.Add("Не");
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox1.Items.Add("Да");
+            comboBox1.Items.Add("Не");
+        }
     }
 }

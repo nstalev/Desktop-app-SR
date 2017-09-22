@@ -36,5 +36,15 @@ namespace SR.Service
                         $"'{phone}' " +
                          ")";
         }
+
+
+        public string selectOnlyWorkerName()
+        {
+            return "SELECT worker_name FROM workers";
+        }
+
+
+
+
     }
 }
