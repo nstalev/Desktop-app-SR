@@ -51,11 +51,17 @@ namespace SR
         {
             connection.Open();
 
+
+            string test_date = DateTime.Now.ToString("yyyyMMdd");
+            string weding_date = DateTime.Now.ToString("yyyyMMdd");
+
             string createQuery = service.CreateNewOrder(textBox1.Text,
                                                    textBox2.Text,
                                                    textBox3.Text,
                                                    textBox4.Text,
-                                                   textBox5.Text
+                                                   textBox5.Text,
+                                                   test_date,
+                                                   weding_date
               );
 
 
@@ -65,7 +71,10 @@ namespace SR
                 cmd.ExecuteNonQuery();
             }
 
-        
+            this.Hide();
+            var allOrders = new allOrders();
+            allOrders.Show();
+
 
         }
 

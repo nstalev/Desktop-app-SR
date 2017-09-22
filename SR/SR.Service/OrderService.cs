@@ -13,8 +13,10 @@ namespace SR.Service
                                      string client_name,
                                      string city,
                                      string school,
-                                     string phone
-                                          
+                                     string phone,
+                                     string test_date,
+                                     string weding_date
+
             )
         {
 
@@ -24,8 +26,10 @@ namespace SR.Service
                             "client_name, " +
                             "city, " +
                             "school, " +
-                            "phone " +
-                            
+                            "phone, " +
+                            "test_date, " +
+                            "weding_date " +
+
                         ") " +
                         "VALUES " +
                         "(" +
@@ -33,7 +37,10 @@ namespace SR.Service
                         $"'{client_name}', " +
                         $"'{city}', " +
                         $"'{school}', " +
-                        $"'{phone}' " +
+                        $"'{phone}', " +
+                        $"'{test_date}', " +
+                        $"'{weding_date}' " +
+
                          ")";
         }
 
@@ -41,6 +48,12 @@ namespace SR.Service
         public string selectOnlyWorkerName()
         {
             return "SELECT worker_name FROM workers";
+        }
+
+
+        public string GetAllOrders()
+        {
+            return "SELECT * FROM orders";
         }
 
 

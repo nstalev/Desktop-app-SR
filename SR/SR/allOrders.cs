@@ -22,6 +22,7 @@ namespace SR
             InitializeComponent();
             connection = new MySqlConnection(MyConnectionString);
             service = new OrderService();
+            ShowAllWorkers();
         }
 
         private void btn_Main3_Click(object sender, EventArgs e)
@@ -29,6 +30,29 @@ namespace SR
             this.Hide();
             var Main = new Main();
             Main.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+        public void ShowAllWorkers()
+        {
+            connection = new MySqlConnection(MyConnectionString);
+            connection.Open();
+
+            string selectAllOrders = service.GetAllOrders();
+
+            MySqlCommand command = new MySqlCommand(selectAllOrders, connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(command);
+            using (DataTable dt = new DataTable())
+            {
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            connection.Close();
         }
     }
 }
