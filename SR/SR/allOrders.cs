@@ -22,7 +22,7 @@ namespace SR
             InitializeComponent();
             connection = new MySqlConnection(MyConnectionString);
             service = new OrderService();
-            ShowAllWorkers();
+            ShowAllOrders();
         }
 
         private void btn_Main3_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace SR
         }
 
 
-        public void ShowAllWorkers()
+        public void ShowAllOrders()
         {
             connection = new MySqlConnection(MyConnectionString);
             connection.Open();

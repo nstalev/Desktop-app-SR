@@ -55,8 +55,10 @@ namespace SR
             string test_date = DateTime.Now.ToString("yyyyMMdd");
             string weding_date = DateTime.Now.ToString("yyyyMMdd");
 
+
+            //SELECT  Cut Out Dress Worker
             string cutoutdress_worker;
-            int cutoutdress_worker_id;
+            int cutoutdress_worker_id = 0;
             if (comboBox3.SelectedItem != null)
             {
                 cutoutdress_worker = comboBox3.SelectedItem.ToString();
@@ -64,22 +66,31 @@ namespace SR
             }
 
 
+            //SELECT  Cut Out Dress Worker
+            string made_by_worker;
+            int made_by_worker_id = 0;
+            if (comboBox4.SelectedItem != null)
+            {
+                made_by_worker = comboBox4.SelectedItem.ToString();
+                made_by_worker_id = service.GetWorkerId(made_by_worker);
+            }
 
-            string createQuery = service.CreateNewOrder(textBox1.Text,
+
+
+            service.CreateNewOrder(textBox1.Text,
                                                    textBox2.Text,
                                                    textBox3.Text,
                                                    textBox4.Text,
                                                    textBox5.Text,
                                                    test_date,
-                                                   weding_date
+                                                   weding_date,
+
+                                                   cutoutdress_worker_id,
+                                                   made_by_worker_id
               );
 
 
-            using (connection)
-            {
-                MySqlCommand cmd = new MySqlCommand(createQuery, connection);
-                cmd.ExecuteNonQuery();
-            }
+         
 
 
 

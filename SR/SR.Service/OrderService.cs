@@ -17,18 +17,22 @@ namespace SR.Service
             connection = new MySqlConnection(MyConnectionString);
 
         }
-        public string CreateNewOrder(string model_name,
+        public void CreateNewOrder(string model_name,
                                      string client_name,
                                      string city,
                                      string school,
                                      string phone,
                                      string test_date,
-                                     string weding_date
+                                     string weding_date,
 
+                                     int cutoutdress_worker_id,
+                                     int made_by_worker_id
             )
         {
 
-            return "INSERT INTO orders " +
+            connection.Open();
+
+            string createQuery ="INSERT INTO orders " +
                         "(" +
                             "model_name, " +
                             "client_name, " +
@@ -36,7 +40,10 @@ namespace SR.Service
                             "school, " +
                             "phone, " +
                             "test_date, " +
-                            "weding_date " +
+                            "weding_date, " +
+
+                            "cutoutdress_worker_id, " +
+                            "made_by_worker_id " +
 
                         ") " +
                         "VALUES " +
@@ -47,9 +54,19 @@ namespace SR.Service
                         $"'{school}', " +
                         $"'{phone}', " +
                         $"'{test_date}', " +
-                        $"'{weding_date}' " +
+                        $"'{weding_date}', " +
 
+                        $"'{cutoutdress_worker_id}', " +
+                        $"'{made_by_worker_id}' " +
                          ")";
+
+            
+
+            using (connection)
+            {
+                MySqlCommand cmd = new MySqlCommand(createQuery, connection);
+                cmd.ExecuteNonQuery();
+            }
         }
 
 
@@ -63,6 +80,7 @@ namespace SR.Service
         {
             string createQuery = $"SELECT worker_id FROM workers WHERE worker_name ='{worker}'";
               int result = 0;
+
             connection.Open();
             using (connection)
             {
