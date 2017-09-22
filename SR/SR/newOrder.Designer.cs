@@ -154,7 +154,6 @@
             this.textBox72 = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
-            this.textBox73 = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
             this.textBox74 = new System.Windows.Forms.TextBox();
             this.label51 = new System.Windows.Forms.Label();
@@ -186,11 +185,9 @@
             this.textBox94 = new System.Windows.Forms.TextBox();
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
-            this.textBox95 = new System.Windows.Forms.TextBox();
             this.label60 = new System.Windows.Forms.Label();
             this.textBox96 = new System.Windows.Forms.TextBox();
             this.label61 = new System.Windows.Forms.Label();
-            this.textBox97 = new System.Windows.Forms.TextBox();
             this.label62 = new System.Windows.Forms.Label();
             this.textBox98 = new System.Windows.Forms.TextBox();
             this.label63 = new System.Windows.Forms.Label();
@@ -208,7 +205,6 @@
             this.label69 = new System.Windows.Forms.Label();
             this.textBox105 = new System.Windows.Forms.TextBox();
             this.label70 = new System.Windows.Forms.Label();
-            this.textBox106 = new System.Windows.Forms.TextBox();
             this.label71 = new System.Windows.Forms.Label();
             this.textBox107 = new System.Windows.Forms.TextBox();
             this.label72 = new System.Windows.Forms.Label();
@@ -217,9 +213,7 @@
             this.label74 = new System.Windows.Forms.Label();
             this.textBox109 = new System.Windows.Forms.TextBox();
             this.label75 = new System.Windows.Forms.Label();
-            this.textBox110 = new System.Windows.Forms.TextBox();
             this.label76 = new System.Windows.Forms.Label();
-            this.textBox111 = new System.Windows.Forms.TextBox();
             this.label77 = new System.Windows.Forms.Label();
             this.textBox112 = new System.Windows.Forms.TextBox();
             this.label78 = new System.Windows.Forms.Label();
@@ -255,6 +249,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label92 = new System.Windows.Forms.Label();
+            this.comboBox22 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -1409,14 +1409,6 @@
             this.label49.TabIndex = 136;
             this.label49.Text = "Проверил";
             // 
-            // textBox73
-            // 
-            this.textBox73.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox73.Location = new System.Drawing.Point(378, 2797);
-            this.textBox73.Name = "textBox73";
-            this.textBox73.Size = new System.Drawing.Size(297, 30);
-            this.textBox73.TabIndex = 135;
-            // 
             // label50
             // 
             this.label50.AutoSize = true;
@@ -1700,14 +1692,6 @@
             this.label59.TabIndex = 145;
             this.label59.Text = "Изработена от";
             // 
-            // textBox95
-            // 
-            this.textBox95.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox95.Location = new System.Drawing.Point(242, 3725);
-            this.textBox95.Name = "textBox95";
-            this.textBox95.Size = new System.Drawing.Size(301, 30);
-            this.textBox95.TabIndex = 144;
-            // 
             // label60
             // 
             this.label60.AutoSize = true;
@@ -1735,14 +1719,6 @@
             this.label61.Size = new System.Drawing.Size(162, 25);
             this.label61.TabIndex = 141;
             this.label61.Text = "Приел за украса";
-            // 
-            // textBox97
-            // 
-            this.textBox97.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox97.Location = new System.Drawing.Point(242, 3661);
-            this.textBox97.Name = "textBox97";
-            this.textBox97.Size = new System.Drawing.Size(301, 30);
-            this.textBox97.TabIndex = 140;
             // 
             // label62
             // 
@@ -1898,14 +1874,6 @@
             this.label70.TabIndex = 181;
             this.label70.Text = "Проверил";
             // 
-            // textBox106
-            // 
-            this.textBox106.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox106.Location = new System.Drawing.Point(470, 4688);
-            this.textBox106.Name = "textBox106";
-            this.textBox106.Size = new System.Drawing.Size(345, 30);
-            this.textBox106.TabIndex = 180;
-            // 
             // label71
             // 
             this.label71.AutoSize = true;
@@ -1983,14 +1951,6 @@
             this.label75.TabIndex = 190;
             this.label75.Text = "Издадена от";
             // 
-            // textBox110
-            // 
-            this.textBox110.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox110.Location = new System.Drawing.Point(255, 6067);
-            this.textBox110.Name = "textBox110";
-            this.textBox110.Size = new System.Drawing.Size(364, 30);
-            this.textBox110.TabIndex = 189;
-            // 
             // label76
             // 
             this.label76.AutoSize = true;
@@ -2000,14 +1960,6 @@
             this.label76.Size = new System.Drawing.Size(292, 25);
             this.label76.TabIndex = 192;
             this.label76.Text = "Проверена преди издаване от";
-            // 
-            // textBox111
-            // 
-            this.textBox111.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox111.Location = new System.Drawing.Point(255, 6113);
-            this.textBox111.Name = "textBox111";
-            this.textBox111.Size = new System.Drawing.Size(364, 30);
-            this.textBox111.TabIndex = 191;
             // 
             // label77
             // 
@@ -2333,12 +2285,84 @@
             this.label92.Text = "Stoyan Radichev CopyRight Reserved 2017";
             this.label92.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // comboBox22
+            // 
+            this.comboBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox22.FormattingEnabled = true;
+            this.comboBox22.Location = new System.Drawing.Point(396, 2798);
+            this.comboBox22.Name = "comboBox22";
+            this.comboBox22.Size = new System.Drawing.Size(402, 33);
+            this.comboBox22.TabIndex = 228;
+            this.comboBox22.DropDown += new System.EventHandler(this.comboBox22_SelectedIndexChanged);
+            this.comboBox22.SelectedIndexChanged += new System.EventHandler(this.comboBox22_SelectedIndexChanged);
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(242, 3657);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(301, 33);
+            this.comboBox5.TabIndex = 229;
+            this.comboBox5.DropDown += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(242, 3729);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(301, 33);
+            this.comboBox6.TabIndex = 230;
+            this.comboBox6.DropDown += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
+            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(470, 4692);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(345, 33);
+            this.comboBox7.TabIndex = 231;
+            this.comboBox7.DropDown += new System.EventHandler(this.comboBox7_SelectedIndexChanged);
+            this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.comboBox7_SelectedIndexChanged);
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(288, 6066);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(320, 33);
+            this.comboBox8.TabIndex = 232;
+            this.comboBox8.DropDown += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
+            this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
+            // 
+            // comboBox9
+            // 
+            this.comboBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Location = new System.Drawing.Point(288, 6113);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(320, 33);
+            this.comboBox9.TabIndex = 233;
+            this.comboBox9.DropDown += new System.EventHandler(this.comboBox9_SelectedIndexChanged);
+            this.comboBox9.SelectedIndexChanged += new System.EventHandler(this.comboBox9_SelectedIndexChanged);
+            // 
             // newOrder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1353, 917);
+            this.Controls.Add(this.comboBox9);
+            this.Controls.Add(this.comboBox8);
+            this.Controls.Add(this.comboBox7);
+            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.comboBox22);
             this.Controls.Add(this.label92);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -2375,9 +2399,7 @@
             this.Controls.Add(this.label77);
             this.Controls.Add(this.textBox112);
             this.Controls.Add(this.label76);
-            this.Controls.Add(this.textBox111);
             this.Controls.Add(this.label75);
-            this.Controls.Add(this.textBox110);
             this.Controls.Add(this.label74);
             this.Controls.Add(this.textBox109);
             this.Controls.Add(this.label73);
@@ -2386,7 +2408,6 @@
             this.Controls.Add(this.textBox107);
             this.Controls.Add(this.label71);
             this.Controls.Add(this.label70);
-            this.Controls.Add(this.textBox106);
             this.Controls.Add(this.label69);
             this.Controls.Add(this.textBox105);
             this.Controls.Add(this.label68);
@@ -2422,16 +2443,13 @@
             this.Controls.Add(this.textBox94);
             this.Controls.Add(this.label58);
             this.Controls.Add(this.label59);
-            this.Controls.Add(this.textBox95);
             this.Controls.Add(this.label60);
             this.Controls.Add(this.textBox96);
             this.Controls.Add(this.label61);
-            this.Controls.Add(this.textBox97);
             this.Controls.Add(this.label47);
             this.Controls.Add(this.textBox72);
             this.Controls.Add(this.label48);
             this.Controls.Add(this.label49);
-            this.Controls.Add(this.textBox73);
             this.Controls.Add(this.label50);
             this.Controls.Add(this.textBox74);
             this.Controls.Add(this.label51);
@@ -2702,7 +2720,6 @@
         private System.Windows.Forms.TextBox textBox72;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.TextBox textBox73;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.TextBox textBox74;
         private System.Windows.Forms.Label label51;
@@ -2734,11 +2751,9 @@
         private System.Windows.Forms.TextBox textBox94;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.TextBox textBox95;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.TextBox textBox96;
         private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.TextBox textBox97;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.TextBox textBox98;
         private System.Windows.Forms.Label label63;
@@ -2756,7 +2771,6 @@
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.TextBox textBox105;
         private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.TextBox textBox106;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.TextBox textBox107;
         private System.Windows.Forms.Label label72;
@@ -2765,9 +2779,7 @@
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.TextBox textBox109;
         private System.Windows.Forms.Label label75;
-        private System.Windows.Forms.TextBox textBox110;
         private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.TextBox textBox111;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.TextBox textBox112;
         private System.Windows.Forms.Label label78;
@@ -2803,5 +2815,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.ComboBox comboBox22;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox comboBox9;
     }
 }
