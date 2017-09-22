@@ -55,6 +55,11 @@ namespace SR
             string test_date = DateTime.Now.ToString("yyyyMMdd");
             string weding_date = DateTime.Now.ToString("yyyyMMdd");
 
+            string cutoutdress_worker = comboBox3.SelectedItem.ToString();
+            int cutoutdress_worker_id = service.GetWorkerId(cutoutdress_worker);
+
+
+
             string createQuery = service.CreateNewOrder(textBox1.Text,
                                                    textBox2.Text,
                                                    textBox3.Text,
@@ -65,11 +70,7 @@ namespace SR
               );
 
 
-            using (connection)
-            {
-                MySqlCommand cmd = new MySqlCommand(createQuery, connection);
-                cmd.ExecuteNonQuery();
-            }
+           
 
             this.Hide();
             var allOrders = new allOrders();
@@ -92,6 +93,8 @@ namespace SR
                     comboBox3.Items.Add(dr["worker_name"]);
                 }
             }
+
+            
             connection.Close();
         }
 
