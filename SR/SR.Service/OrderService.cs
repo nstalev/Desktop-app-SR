@@ -94,10 +94,13 @@ namespace SR.Service
 
         public string GetAllOrders()
         {
-            return "SELECT o.order_id, o.model_name, o.client_name, o.city, o.phone, w.worker_name AS 'Cut out Dress by'" +
+            return "SELECT o.order_id, o.model_name, o.client_name, o.city, o.phone, " +
+                "w.worker_name AS 'Cut out Dress by', wo.worker_name AS 'Dress made by'" +
                 "FROM orders AS o " +
                 "INNER JOIN workers as w " +
                 "ON o.cutoutdress_worker_id = w.worker_id " +
+                "INNER JOIN workers as wo " +
+                "ON o.made_by_worker_id = wo.worker_id " +
                 "ORDER BY o.order_id DESC";
         }
 
