@@ -25,8 +25,8 @@ namespace SR.Service
                                      string test_date,
                                      string weding_date,
 
-                                     int cutoutdress_worker_id,
-                                     int made_by_worker_id
+                                     string cutoutdress_worker_id,
+                                     string made_by_worker_id
             )
         {
 
@@ -94,7 +94,10 @@ namespace SR.Service
 
         public string GetAllOrders()
         {
-            return "SELECT * FROM orders";
+            return "SELECT o.order_id, o.model_name, o.client_name, o.city, o.phone, w.worker_name " +
+                "FROM orders AS o " +
+                "INNER JOIN workers as w " +
+                "ON o.cutoutdress_worker_id = w.worker_id";
         }
 
 

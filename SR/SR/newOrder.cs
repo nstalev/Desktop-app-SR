@@ -57,22 +57,21 @@ namespace SR
 
 
             //SELECT  Cut Out Dress Worker
-            string cutoutdress_worker;
-            int cutoutdress_worker_id = 0;
+            string cutoutdress_worker_id = null;
             if (comboBox3.SelectedItem != null)
             {
-                cutoutdress_worker = comboBox3.SelectedItem.ToString();
-                cutoutdress_worker_id = service.GetWorkerId(cutoutdress_worker);
+                string cutoutdress_worker = comboBox3.SelectedItem.ToString();
+                cutoutdress_worker_id = service.GetWorkerId(cutoutdress_worker).ToString();
             }
+           
 
 
             //SELECT  Cut Out Dress Worker
-            string made_by_worker;
-            int made_by_worker_id = 0;
+            string made_by_worker_id = null;
             if (comboBox4.SelectedItem != null)
             {
-                made_by_worker = comboBox4.SelectedItem.ToString();
-                made_by_worker_id = service.GetWorkerId(made_by_worker);
+                string made_by_worker = comboBox4.SelectedItem.ToString();
+                made_by_worker_id = service.GetWorkerId(made_by_worker).ToString();
             }
 
 
