@@ -24,6 +24,25 @@ namespace SR.Service
                                      string phone,
                                      string test_date,
                                      string weding_date,
+                                     string chest_lap,
+                                     string podgradna_lap,
+                                     string waist_measurement,
+                                     string low_waist,
+                                     string lap_hips,
+                                     string skirt_lenght_front,
+                                     string skirt_lenght_back,
+                                     string sleeve_length,
+                                     string tour_biceps,
+                                     string length_from_shoulder_to_tq,
+                                     string length_from_7shp_to_waist,
+                                     string length_from_7shp_to_floor,
+                                     string line_of_skirt_attachment,
+                                     string place_of_skirt_attachment,
+                                     string princess_number_of_skirts,
+                                     string italian_tulle,
+                                     string crystal_tulle,
+                                     string price,
+                                     string deposit,
 
                                      string cutoutdress_worker_id,
                                      string made_by_worker_id
@@ -41,6 +60,26 @@ namespace SR.Service
                             "phone, " +
                             "test_date, " +
                             "weding_date, " +
+                            "chest_lap, " +
+                            "podgradna_lap, " +
+                            "waist_measurement, " +
+                            "low_waist, " +
+                            "lap_hips, " +
+                            "skirt_lenght_front, " +
+                            "skirt_lenght_back, " +
+                            "sleeve_length, " +
+                            "tour_biceps, " +
+                            "length_from_shoulder_to_tq, " +
+                            "length_from_7shp_to_waist, " +
+                            "length_from_7shp_to_floor, " +
+                            "line_of_skirt_attachment, " +
+                            "place_of_skirt_attachment, " +
+                            "princess_number_of_skirts, " +
+                            "italian_tulle, " +
+                            "crystal_tulle, " +
+                            "price, " +
+                            "deposit, " +
+
 
                             "cutoutdress_worker_id, " +
                             "made_by_worker_id " +
@@ -55,6 +94,25 @@ namespace SR.Service
                         $"'{phone}', " +
                         $"'{test_date}', " +
                         $"'{weding_date}', " +
+                        $"'{chest_lap}', " +
+                        $"'{podgradna_lap}', " +
+                        $"'{waist_measurement}', " +
+                        $"'{low_waist}', " +
+                        $"'{lap_hips}', " +
+                        $"'{skirt_lenght_front}', " +
+                        $"'{skirt_lenght_back}', " +
+                        $"'{sleeve_length}', " +
+                        $"'{tour_biceps}', " +
+                        $"'{length_from_shoulder_to_tq}', " +
+                        $"'{length_from_7shp_to_waist}', " +
+                        $"'{length_from_7shp_to_floor}', " +
+                        $"'{line_of_skirt_attachment}', " +
+                        $"'{place_of_skirt_attachment}', " +
+                        $"'{princess_number_of_skirts}', " +
+                        $"'{italian_tulle}', " +
+                        $"'{crystal_tulle}', " +
+                        $"'{price}', " +
+                        $"'{deposit}', " +
 
                         $"'{cutoutdress_worker_id}', " +
                         $"'{made_by_worker_id}' " +
