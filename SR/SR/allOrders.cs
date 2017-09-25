@@ -17,6 +17,8 @@ namespace SR
         private OrderService service;
         MySqlConnection connection;
         string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';";
+
+        public static string numberOrder;
         public allOrders()
         {
             InitializeComponent();
@@ -53,6 +55,28 @@ namespace SR
                 dataGridView1.DataSource = dt;
             }
             connection.Close();
+        }
+
+
+        //------------SHOULD BE UPDATED---------
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            string orderNumber = textBox5.Text;
+          //  int orderNumtoInt = int.Parse(orderNumber);
+
+            if (String.IsNullOrEmpty(orderNumber))
+            {
+                //SHOULD SHOW MESSAGE to fill only nubers
+            }
+            else
+            {
+                numberOrder = textBox5.Text;
+
+                this.Hide();
+                var currentOrder = new currentOrder();
+                currentOrder.Show();
+            }
+           
         }
     }
 }

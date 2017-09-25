@@ -12,6 +12,8 @@ namespace SR.Service
         MySqlConnection connection;
         string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';";
 
+        public string orderquery { get; set; }
+
         public OrderService()
         {
             connection = new MySqlConnection(MyConnectionString);
@@ -163,6 +165,12 @@ namespace SR.Service
         }
 
 
+
+
+        public string GetCurrentOrderQuery(string orderNum)
+        {
+            return $"SELECT * FROM orders WHERE order_id = '{orderNum}'";
+        }
 
 
     }

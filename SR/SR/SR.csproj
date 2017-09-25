@@ -69,6 +69,12 @@
     <Compile Include="calcHours.Designer.cs">
       <DependentUpon>calcHours.cs</DependentUpon>
     </Compile>
+    <Compile Include="currentOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="currentOrder.Designer.cs">
+      <DependentUpon>currentOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="calcHours.resx">
       <DependentUpon>calcHours.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="currentOrder.resx">
+      <DependentUpon>currentOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
