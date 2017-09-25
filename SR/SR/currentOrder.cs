@@ -73,6 +73,22 @@ namespace SR
                     textBox8.Text = reader["chest_lap"].ToString();
                     textBox9.Text = reader["podgradna_lap"].ToString();
                     textBox10.Text = reader["waist_measurement"].ToString();
+                    textBox11.Text = reader["low_waist"].ToString();
+                    textBox12.Text = reader["lap_hips"].ToString();
+                    textBox13.Text = reader["skirt_lenght_front"].ToString();
+                    textBox14.Text = reader["skirt_lenght_back"].ToString();
+                    textBox15.Text = reader["sleeve_length"].ToString();
+                    textBox16.Text = reader["tour_biceps"].ToString();
+                    textBox17.Text = reader["length_from_shoulder_to_tq"].ToString();
+                    textBox18.Text = reader["length_from_7shp_to_waist"].ToString();
+                    textBox19.Text = reader["length_from_7shp_to_floor"].ToString();
+                    textBox20.Text = reader["line_of_skirt_attachment"].ToString();
+                    textBox21.Text = reader["place_of_skirt_attachment"].ToString();
+                    textBox22.Text = reader["princess_number_of_skirts"].ToString();
+                    textBox23.Text = reader["italian_tulle"].ToString();
+                    textBox24.Text = reader["crystal_tulle"].ToString();
+                    textBox25.Text = reader["price"].ToString();
+                    textBox26.Text = reader["deposit"].ToString();
 
                 }
 
