@@ -87,6 +87,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Worker.cs" />
     <Compile Include="newOrder.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using SR.Models;
 using SR.Service;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,13 @@ namespace SR
         private OrderService service;
         MySqlConnection connection;
         string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';";
-
+        List<Worker> workersList = new List<Worker>();
         public newOrder()
         {
             InitializeComponent();
             connection = new MySqlConnection(MyConnectionString);
             service = new OrderService();
+            workersList = GetAllWorkersForCombo();
         }
 
         private void newOrder_Load(object sender, EventArgs e)
@@ -57,22 +59,17 @@ namespace SR
 
 
             //SELECT  Cut Out Dress Worker
-            string cutoutdress_worker_id = null;
-            if (comboBox3.SelectedItem != null)
-            {
-                string cutoutdress_worker = comboBox3.SelectedItem.ToString();
-                cutoutdress_worker_id = service.GetWorkerId(cutoutdress_worker).ToString();
-            }
+            string cutoutdress_worker_id = comboBox3.SelectedValue.ToString();
+          //  if (comboBox3.SelectedItem != null)
+          //  {
+          //      string cutoutdress_worker = comboBox3.SelectedItem.ToString();
+          //      cutoutdress_worker_id = service.GetWorkerId(cutoutdress_worker).ToString();
+          //  }
            
 
 
             //SELECT  Cut Out Dress Worker
-            string made_by_worker_id = null;
-            if (comboBox4.SelectedItem != null)
-            {
-                string made_by_worker = comboBox4.SelectedItem.ToString();
-                made_by_worker_id = service.GetWorkerId(made_by_worker).ToString();
-            }
+            string made_by_worker_id = comboBox4.SelectedValue.ToString(); ;
 
 
 
@@ -121,38 +118,16 @@ namespace SR
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            connection.Open();
-            MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-
-            using (DataTable dt = new DataTable())
-            {
-                da.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    comboBox3.Items.Add(dr["worker_name"]);
-                }
-            }
-
-
-            connection.Close();
+            comboBox3.DataSource = workersList;
+            comboBox3.DisplayMember = "name";
+            comboBox3.ValueMember = "id";
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            connection.Open();
-            MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-
-            using (DataTable dt = new DataTable())
-            {
-                da.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    comboBox4.Items.Add(dr["worker_name"]);
-                }
-            }
-            connection.Close();
+            comboBox4.DataSource = workersList;
+            comboBox4.DisplayMember = "name";
+            comboBox4.ValueMember = "id";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -267,6 +242,28 @@ namespace SR
                 }
             }
             connection.Close();
+        }
+
+        public List<Worker> GetAllWorkersForCombo()
+        {
+            connection = new MySqlConnection(MyConnectionString);
+            connection.Open();
+
+            List<Worker> listWitWorkers = new List<Worker>();
+
+            using (connection)
+            {
+                MySqlCommand command1 = new MySqlCommand(service.GetAllWorkers(), connection);
+                MySqlDataReader reader = command1.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    listWitWorkers.Add(new Worker() { Id = int.Parse(reader[0].ToString()), Name = reader[1].ToString() });
+                }
+
+            }
+
+            return listWitWorkers;
         }
     }
 }

@@ -134,6 +134,10 @@ namespace SR.Service
         {
             return "SELECT worker_name FROM workers";
         }
+        public string GetAllWorkers()
+        {
+            return "SELECT * FROM workers";
+        }
 
 
         public int GetWorkerId(string worker)
