@@ -19,13 +19,27 @@ namespace SR
         private OrderService service;
         MySqlConnection connection;
         string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';";
-        List<Worker> workersList = new List<Worker>();
+        List<Worker> workersList1 = new List<Worker>();
+        List<Worker> workersList2 = new List<Worker>();
+        List<Worker> workersList3 = new List<Worker>();
+        List<Worker> workersList4 = new List<Worker>();
+        List<Worker> workersList5 = new List<Worker>();
+        List<Worker> workersList6 = new List<Worker>();
+        List<Worker> workersList7 = new List<Worker>();
+        List<Worker> workersList8 = new List<Worker>();
         public newOrder()
         {
             InitializeComponent();
             connection = new MySqlConnection(MyConnectionString);
             service = new OrderService();
-            workersList = GetAllWorkersForCombo();
+            workersList1 = GetAllWorkersForCombo();
+            workersList2 = GetAllWorkersForCombo(); 
+            workersList3 = GetAllWorkersForCombo();
+            workersList4 = GetAllWorkersForCombo();
+            workersList5 = GetAllWorkersForCombo();
+            workersList6 = GetAllWorkersForCombo();
+            workersList7 = GetAllWorkersForCombo();
+            workersList8 = GetAllWorkersForCombo();
         }
 
         private void newOrder_Load(object sender, EventArgs e)
@@ -60,12 +74,6 @@ namespace SR
 
             //SELECT  Cut Out Dress Worker
             string cutoutdress_worker_id = comboBox3.SelectedValue.ToString();
-          //  if (comboBox3.SelectedItem != null)
-          //  {
-          //      string cutoutdress_worker = comboBox3.SelectedItem.ToString();
-          //      cutoutdress_worker_id = service.GetWorkerId(cutoutdress_worker).ToString();
-          //  }
-           
 
 
             //SELECT  Cut Out Dress Worker
@@ -118,14 +126,14 @@ namespace SR
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox3.DataSource = workersList;
+            comboBox3.DataSource = workersList1;
             comboBox3.DisplayMember = "name";
             comboBox3.ValueMember = "id";
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox4.DataSource = workersList;
+            comboBox4.DataSource = workersList2;
             comboBox4.DisplayMember = "name";
             comboBox4.ValueMember = "id";
         }
@@ -144,104 +152,44 @@ namespace SR
 
         private void comboBox22_SelectedIndexChanged(object sender, EventArgs e)
         {
-            connection.Open();
-            MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-
-            using (DataTable dt = new DataTable())
-            {
-                da.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    comboBox22.Items.Add(dr["worker_name"]);
-                }
-            }
-            connection.Close();
+            comboBox22.DataSource = workersList3;
+            comboBox22.DisplayMember = "name";
+            comboBox22.ValueMember = "id";
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            connection.Open();
-            MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-
-            using (DataTable dt = new DataTable())
-            {
-                da.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    comboBox5.Items.Add(dr["worker_name"]);
-                }
-            }
-            connection.Close();
+            comboBox5.DataSource = workersList4;
+            comboBox5.DisplayMember = "name";
+            comboBox5.ValueMember = "id";
         }
 
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            connection.Open();
-            MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-
-            using (DataTable dt = new DataTable())
-            {
-                da.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    comboBox6.Items.Add(dr["worker_name"]);
-                }
-            }
-            connection.Close();
+            comboBox6.DataSource = workersList5;
+            comboBox6.DisplayMember = "name";
+            comboBox6.ValueMember = "id";
         }
 
         private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
         {
-            connection.Open();
-            MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-
-            using (DataTable dt = new DataTable())
-            {
-                da.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    comboBox7.Items.Add(dr["worker_name"]);
-                }
-            }
-            connection.Close();
+            comboBox7.DataSource = workersList6;
+            comboBox7.DisplayMember = "name";
+            comboBox7.ValueMember = "id";
         }
 
         private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
         {
-            connection.Open();
-            MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-
-            using (DataTable dt = new DataTable())
-            {
-                da.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    comboBox8.Items.Add(dr["worker_name"]);
-                }
-            }
-            connection.Close();
+            comboBox8.DataSource = workersList7;
+            comboBox8.DisplayMember = "name";
+            comboBox8.ValueMember = "id";
         }
 
         private void comboBox9_SelectedIndexChanged(object sender, EventArgs e)
         {
-            connection.Open();
-            MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-
-            using (DataTable dt = new DataTable())
-            {
-                da.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    comboBox9.Items.Add(dr["worker_name"]);
-                }
-            }
-            connection.Close();
+            comboBox9.DataSource = workersList8;
+            comboBox9.DisplayMember = "name";
+            comboBox9.ValueMember = "id";
         }
 
         public List<Worker> GetAllWorkersForCombo()
