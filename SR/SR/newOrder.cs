@@ -73,11 +73,20 @@ namespace SR
 
 
             //SELECT  Cut Out Dress Worker
-            string cutoutdress_worker_id = comboBox3.SelectedValue.ToString();
+            string cutoutdress_worker_id = "1";
+            if (comboBox3.SelectedValue != null)
+            {
+                cutoutdress_worker_id = comboBox3.SelectedValue.ToString();
+            }
+
 
 
             //SELECT  Cut Out Dress Worker
-            string made_by_worker_id = comboBox4.SelectedValue.ToString(); ;
+            string made_by_worker_id = "1";
+            if (comboBox3.SelectedValue != null)
+            {
+                made_by_worker_id = comboBox4.SelectedValue.ToString();
+            }
 
 
 
