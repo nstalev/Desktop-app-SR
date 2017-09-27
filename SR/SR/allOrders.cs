@@ -62,11 +62,19 @@ namespace SR
         private void btn_search_Click(object sender, EventArgs e)
         {
             string orderNumber = textBox5.Text;
-          //  int orderNumtoInt = int.Parse(orderNumber);
+            int orderNumtoInt = 0;
 
             if (String.IsNullOrEmpty(orderNumber))
             {
-                //SHOULD SHOW MESSAGE to fill only nubers
+                MessageBox.Show("Моля изберете номер на поръчка");
+            }
+            else if (!int.TryParse(orderNumber, out orderNumtoInt))
+            {
+                MessageBox.Show("Моля въведете числова стойност");
+            }
+            else if (service.CheckIfOrderExists(orderNumtoInt))
+            {
+                MessageBox.Show("Поръчка с такъв номер не съществува");
             }
             else
             {
@@ -76,7 +84,7 @@ namespace SR
                 var currentOrder = new currentOrder();
                 currentOrder.Show();
             }
-           
+
         }
     }
 }

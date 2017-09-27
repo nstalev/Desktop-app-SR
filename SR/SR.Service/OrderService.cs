@@ -176,6 +176,33 @@ namespace SR.Service
             return $"SELECT * FROM orders WHERE order_id = '{orderNum}'";
         }
 
+        public bool CheckIfOrderExists(int orderNum)
+        {
+            string createQuery = $"SELECT * FROM orders WHERE order_id ='{orderNum}'";
+            int result = 0;
 
+            connection.Open();
+            using (connection)
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(createQuery, connection);
+                    result = (int)cmd.ExecuteScalar();
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+
+            if (result == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
