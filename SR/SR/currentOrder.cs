@@ -17,23 +17,34 @@ namespace SR
         private OrderService service;
         MySqlConnection connection;
         string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';";
-
-      //  string queryString;
+        string orderNumber = allOrders.numberOrder;
+        //  string queryString;
         public currentOrder()
         {
             InitializeComponent();
             connection = new MySqlConnection(MyConnectionString);
             service = new OrderService();
-            ShowCurrentOrder();
+            ShowCurrentOrder(orderNumber);
         }
 
 
+
+        //UPDATE CURRENT ORDER
         private void button1_Click(object sender, EventArgs e)
         {
-          //  string pesho = service.orderquery;
 
-            //string dsadas = allOrders.numberOrder;
+            service.UpdateCurrentOrder(orderNumber,
+                                                   textBox1.Text,
+                                                   textBox2.Text,
+                                                   textBox3.Text,
+                                                   textBox4.Text,
+                                                   textBox5.Text);
 
+
+
+            this.Hide();
+            var allOrders = new allOrders();
+            allOrders.Show();
         }
 
         private void btn_Main_Click(object sender, EventArgs e)
@@ -45,9 +56,9 @@ namespace SR
 
 
 
-        private void ShowCurrentOrder()
+        private void ShowCurrentOrder(string orderNumber)
         {
-            string orderNumber = allOrders.numberOrder;
+            
 
             string orderQuery = service.GetCurrentOrderQuery(orderNumber);
 

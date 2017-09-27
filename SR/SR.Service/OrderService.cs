@@ -19,6 +19,8 @@ namespace SR.Service
             connection = new MySqlConnection(MyConnectionString);
 
         }
+
+        //CREATE NEW ORDER
         public void CreateNewOrder(string model_name,
                                      string client_name,
                                      string city,
@@ -128,6 +130,38 @@ namespace SR.Service
                 cmd.ExecuteNonQuery();
             }
         }
+
+
+        //------UPDATE CURRENT ORDER
+        public void UpdateCurrentOrder(string orderNumber,
+                                             string model_name,
+                                             string client_name,
+                                             string city,
+                                             string school,
+                                             string phone)
+        {
+            connection.Open();
+
+            string createQuery = "UPDATE orders " +
+                             "SET " +
+                            $"model_name='{model_name}', " +
+                            $"client_name='{client_name}', " +
+                            $"city='{city}', " +
+                            $"school='{school}', " +
+                            $"phone='{phone}' " +
+
+
+
+                            $"WHERE order_id = '{orderNumber}'";
+                            
+
+            using (connection)
+            {
+                MySqlCommand cmd = new MySqlCommand(createQuery, connection);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
 
 
         public string selectOnlyWorkerName()

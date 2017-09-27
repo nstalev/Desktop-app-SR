@@ -58,7 +58,7 @@ namespace SR
         }
 
 
-        //------------SHOULD BE UPDATED---------
+        //------------VALIDATIONS---------
         private void btn_search_Click(object sender, EventArgs e)
         {
             string orderNumber = textBox5.Text;
