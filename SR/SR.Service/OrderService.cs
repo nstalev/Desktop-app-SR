@@ -1,9 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SR.Service
 {
@@ -130,6 +133,64 @@ namespace SR.Service
                 cmd.ExecuteNonQuery();
             }
         }
+
+        //CHECK IF DATE IS VALID
+        public bool CheckIfDateIsValid(string text)
+        {
+            string pattern = @"([\d]+)";
+
+            Regex regex = new Regex(pattern);
+            MatchCollection matches = regex.Matches(text);
+            List<string> dateList = new List<string>();
+
+            foreach (Match match in matches)
+            {
+                string first = match.Groups[1].ToString();
+                dateList.Add(first);
+            }
+
+            if (dateList.Count != 3)
+            {
+                return true;
+            }
+            else
+            {
+                if (dateList[2].Length > 2 || int.Parse(dateList[2]) > 31 ||
+                    dateList[1].Length > 2 || int.Parse(dateList[1]) > 12 ||
+                    dateList[0].Length != 4)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+                
+        }
+
+
+        //CONVERT TO DATETIME
+        public string ConverteToDate(string text)
+        {
+            string pattern = @"([\d]+)";
+
+            Regex regex = new Regex(pattern);
+            MatchCollection matches = regex.Matches(text);
+            List<string> dateList = new List<string>();
+
+            foreach (Match match in matches)
+            {
+                string first = match.Groups[1].ToString();
+                dateList.Add(first);
+            }
+
+            string dateString = $"{dateList[0]}-{dateList[1]}-{dateList[2]}";
+                
+            return dateString;
+        }
+
 
 
         //------UPDATE CURRENT ORDER

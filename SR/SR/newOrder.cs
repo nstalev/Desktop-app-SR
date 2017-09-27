@@ -67,9 +67,46 @@ namespace SR
         {
             connection.Open();
 
+            bool validator = true;
 
-            string test_date = DateTime.Now.ToString("yyyyMMdd");
-            string weding_date = DateTime.Now.ToString("yyyyMMdd");
+
+            //TEST_DATE
+            string test_date = "";
+            if (String.IsNullOrEmpty(textBox6.Text))
+            {
+                test_date = DateTime.Now.ToString("yyyyMMdd");
+                validator = true;
+            }
+            else if (service.CheckIfDateIsValid(textBox6.Text))
+            {
+                MessageBox.Show("Невалидна дата за проба");
+                validator = false;
+            }
+            else
+            {
+                test_date = service.ConverteToDate(textBox6.Text);
+                validator = true;
+            }
+
+            //weding_date
+            string weding_date = "";
+            if (String.IsNullOrEmpty(textBox7.Text))
+            {
+                weding_date = DateTime.Now.ToString("yyyyMMdd");
+                validator = true;
+            }
+            else if (service.CheckIfDateIsValid(textBox7.Text))
+            {
+                MessageBox.Show("Невалидна дата на сватба");
+                validator = false;
+            }
+            else
+            {
+                weding_date = service.ConverteToDate(textBox7.Text);
+                validator = true;
+            }
+
+
 
 
             //SELECT  Cut Out Dress Worker
@@ -89,47 +126,48 @@ namespace SR
             }
 
 
+            if (validator)
+            {
+                service.CreateNewOrder(textBox1.Text,
+                                       textBox2.Text,
+                                       textBox3.Text,
+                                       textBox4.Text,
+                                       textBox5.Text,
+                                       test_date,
+                                       weding_date,
+                                       textBox8.Text,
+                                       textBox9.Text,
+                                       textBox10.Text,
+                                       textBox11.Text,
+                                       textBox12.Text,
+                                       textBox13.Text,
+                                       textBox14.Text,
+                                       textBox15.Text,
+                                       textBox16.Text,
+                                       textBox17.Text,
+                                       textBox18.Text,
+                                       textBox19.Text,
+                                       textBox20.Text,
+                                       textBox21.Text,
+                                       textBox22.Text,
+                                       textBox23.Text,
+                                       textBox24.Text,
+                                       textBox25.Text,
+                                       textBox26.Text,
 
-            service.CreateNewOrder(                textBox1.Text,
-                                                   textBox2.Text,
-                                                   textBox3.Text,
-                                                   textBox4.Text,
-                                                   textBox5.Text,
-                                                   test_date,
-                                                   weding_date,
-                                                   textBox8.Text,
-                                                   textBox9.Text,
-                                                   textBox10.Text,
-                                                   textBox11.Text,
-                                                   textBox12.Text,
-                                                   textBox13.Text,
-                                                   textBox14.Text,
-                                                   textBox15.Text,
-                                                   textBox16.Text,
-                                                   textBox17.Text,
-                                                   textBox18.Text,
-                                                   textBox19.Text,
-                                                   textBox20.Text,
-                                                   textBox21.Text,
-                                                   textBox22.Text,
-                                                   textBox23.Text,
-                                                   textBox24.Text,
-                                                   textBox25.Text,
-                                                   textBox26.Text,
+                                       cutoutdress_worker_id,
+                                       made_by_worker_id
+                                    );
 
-                                                   cutoutdress_worker_id,
-                                                   made_by_worker_id
-              );
-
-
-         
+                this.Hide();
+                var allOrders = new allOrders();
+                allOrders.Show();
+            }
 
 
 
-            this.Hide();
-            var allOrders = new allOrders();
-            allOrders.Show();
 
+            connection.Close();
 
         }
 
