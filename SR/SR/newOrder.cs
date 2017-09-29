@@ -18,7 +18,7 @@ namespace SR
 
         private OrderService service;
         MySqlConnection connection;
-        string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';";
+        string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';Charset=utf8";
         List<Worker> workersList1 = new List<Worker>();
         List<Worker> workersList2 = new List<Worker>();
         List<Worker> workersList3 = new List<Worker>();

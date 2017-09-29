@@ -16,7 +16,7 @@ namespace SR
     {
         private OrderService service;
         MySqlConnection connection;
-        string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';";
+        string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';Charset=utf8";
 
         public static string numberOrder;
         public allOrders()

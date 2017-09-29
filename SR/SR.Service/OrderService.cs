@@ -13,7 +13,7 @@ namespace SR.Service
     public class OrderService 
     {
         MySqlConnection connection;
-        string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';";
+        string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';Charset=utf8";
 
         public string orderquery { get; set; }
 
