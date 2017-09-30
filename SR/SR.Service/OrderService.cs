@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SR.Service
 {
     public class OrderService 
@@ -199,7 +200,10 @@ namespace SR.Service
                                              string client_name,
                                              string city,
                                              string school,
-                                             string phone)
+                                             string phone,
+
+                                             string cutoutdress_worker_id,
+                                             string made_by_worker_id)
         {
             connection.Open();
 
@@ -209,8 +213,12 @@ namespace SR.Service
                             $"client_name='{client_name}', " +
                             $"city='{city}', " +
                             $"school='{school}', " +
-                            $"phone='{phone}' " +
+                            $"phone='{phone}', " +
 
+
+
+                            $"cutoutdress_worker_id='{cutoutdress_worker_id}', " +
+                            $"made_by_worker_id='{made_by_worker_id}' " +
 
 
                             $"WHERE order_id = '{orderNumber}'";
@@ -262,6 +270,8 @@ namespace SR.Service
                 "ON o.made_by_worker_id = wo.worker_id " +
                 "ORDER BY o.order_id DESC";
         }
+
+
 
 
 

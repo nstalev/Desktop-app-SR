@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using SR.Models;
 using SR.Service;
 using System;
 using System.Collections.Generic;
@@ -19,12 +20,20 @@ namespace SR
         string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';Charset=utf8";
         string orderNumber = allOrders.numberOrder;
         //  string queryString;
+
+        List<Worker> workersList1 = new List<Worker>();
+        List<Worker> workersList2 = new List<Worker>();
+
+
         public currentOrder()
         {
             InitializeComponent();
             connection = new MySqlConnection(MyConnectionString);
             service = new OrderService();
+            workersList1 = GetAllWorkersForCombo();
+            workersList2 = GetAllWorkersForCombo();
             ShowCurrentOrder(orderNumber);
+            
         }
 
 
@@ -33,12 +42,28 @@ namespace SR
         private void button1_Click(object sender, EventArgs e)
         {
 
+            string cutoutdress_worker_id = comboBox3.ValueMember;
+            if (comboBox3.SelectedValue != null)
+            {
+                cutoutdress_worker_id = comboBox3.SelectedValue.ToString();
+            }
+
+            string made_by_worker_id = comboBox4.ValueMember;
+            if (comboBox4.SelectedValue != null)
+            {
+                made_by_worker_id = comboBox4.SelectedValue.ToString();
+            }
+
             service.UpdateCurrentOrder(orderNumber,
                                                    textBox1.Text,
                                                    textBox2.Text,
                                                    textBox3.Text,
                                                    textBox4.Text,
-                                                   textBox5.Text);
+                                                   textBox5.Text,
+
+                                                   cutoutdress_worker_id,
+                                                   made_by_worker_id
+                                                   );
 
 
 
@@ -101,11 +126,59 @@ namespace SR
                     textBox25.Text = reader["price"].ToString();
                     textBox26.Text = reader["deposit"].ToString();
 
+
+                    int cutoutdress_worker_id = int.Parse(reader["cutoutdress_worker_id"].ToString());
+                    Worker cutoutdress_worker = workersList1.First(w => w.Id == cutoutdress_worker_id) ;
+                    string cutoutdress_worker_name = cutoutdress_worker.Name;
+                    comboBox3.Text = cutoutdress_worker_name;
+                    comboBox3.ValueMember = cutoutdress_worker_id.ToString();
+
+                    int made_by_worker_id = int.Parse(reader["made_by_worker_id"].ToString());
+                    Worker made_by_worker = workersList1.First(w => w.Id == made_by_worker_id);
+                    string made_by_worker_name = made_by_worker.Name;
+                    comboBox4.Text = made_by_worker_name;
+                    comboBox4.ValueMember = made_by_worker_id.ToString();
+
+                }
+            }
+
+        }
+
+
+        public List<Worker> GetAllWorkersForCombo()
+        {
+            connection = new MySqlConnection(MyConnectionString);
+            connection.Open();
+
+            List<Worker> listWitWorkers = new List<Worker>();
+
+            using (connection)
+            {
+                MySqlCommand command1 = new MySqlCommand(service.GetAllWorkers(), connection);
+                MySqlDataReader reader = command1.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    listWitWorkers.Add(new Worker() { Id = int.Parse(reader[0].ToString()), Name = reader[1].ToString() });
                 }
 
             }
 
+            return listWitWorkers;
+        }
 
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox3.DataSource = workersList1;
+            comboBox3.DisplayMember = "name";
+            comboBox3.ValueMember = "id";
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox4.DataSource = workersList2;
+            comboBox4.DisplayMember = "name";
+            comboBox4.ValueMember = "id";
         }
     }
 }
