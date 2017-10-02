@@ -140,34 +140,35 @@ namespace SR.Service
         {
             string pattern = @"([\d]+)";
 
-            Regex regex = new Regex(pattern);
-            MatchCollection matches = regex.Matches(text);
-            List<string> dateList = new List<string>();
+         
+                Regex regex = new Regex(pattern);
+                MatchCollection matches = regex.Matches(text);
+                List<string> dateList = new List<string>();
 
-            foreach (Match match in matches)
-            {
-                string first = match.Groups[1].ToString();
-                dateList.Add(first);
-            }
+                foreach (Match match in matches)
+                {
+                    string first = match.Groups[1].ToString();
+                    dateList.Add(first);
+                }
 
-            if (dateList.Count != 3)
-            {
-                return true;
-            }
-            else
-            {
-                if (dateList[2].Length > 2 || int.Parse(dateList[2]) > 31 ||
-                    dateList[1].Length > 2 || int.Parse(dateList[1]) > 12 ||
-                    dateList[0].Length != 4)
+                if (dateList.Count != 3)
                 {
                     return true;
                 }
                 else
                 {
-                    return false;
-                }
+                    if (dateList[2].Length > 2 || int.Parse(dateList[2]) > 31 ||
+                        dateList[1].Length > 2 || int.Parse(dateList[1]) > 12 ||
+                        dateList[0].Length != 4)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
 
-            }
+                }
                 
         }
 
@@ -190,6 +191,56 @@ namespace SR.Service
             string dateString = $"{dateList[0]}-{dateList[1]}-{dateList[2]}";
                 
             return dateString;
+        }
+
+        //CREATE NEW MANIPULATION
+        public void createNewManipulation(string orderNumber, string worker_id, string manipDescription, string manipulation_date, int timeNeeded, int amount)
+        {
+            connection.Open();
+
+
+            string createQuery = "INSERT INTO manipulations " +
+                        "(" +
+                            "description, " +
+                            "manipulation_date, " +
+                            "time_needed, " +
+                            "amount, " +
+                            "worker_id, " +
+                            "order_id " +
+                        ") " +
+                        "VALUES " +
+                        "(" +
+                        $"'{manipDescription}', " +
+                        $"'{manipulation_date}', " +
+                        $"'{timeNeeded}', " +
+                        $"'{amount}', " +
+                        $"'{worker_id}', " +
+                        $"'{orderNumber}' " +
+                         ")";
+
+
+            using (connection)
+            {
+                MySqlCommand cmd = new MySqlCommand(createQuery, connection);
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+
+        public bool CheckIfIsInteger(string text)
+        {
+            string pattern = @"^\d+$";
+            Regex regex = new Regex(pattern);
+
+            if (string.IsNullOrEmpty(text))
+            {
+                return true;
+            }
+            else
+            {
+                return regex.IsMatch(text);
+
+            }
         }
 
 

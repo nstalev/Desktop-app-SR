@@ -23,6 +23,8 @@ namespace SR
 
         List<Worker> workersList1 = new List<Worker>();
         List<Worker> workersList2 = new List<Worker>();
+        List<Worker> workersList3 = new List<Worker>();
+        List<Worker> workersList4 = new List<Worker>();
 
 
         public currentOrder()
@@ -32,6 +34,8 @@ namespace SR
             service = new OrderService();
             workersList1 = GetAllWorkersForCombo();
             workersList2 = GetAllWorkersForCombo();
+            workersList3 = GetAllWorkersForCombo();
+            workersList4 = GetAllWorkersForCombo();
             ShowCurrentOrder(orderNumber);
             
         }
@@ -80,15 +84,15 @@ namespace SR
         }
 
 
-
+        //SHOW CURRENT ORDER
         private void ShowCurrentOrder(string orderNumber)
         {
-            
+           
+
 
             string orderQuery = service.GetCurrentOrderQuery(orderNumber);
 
             connection = new MySqlConnection(MyConnectionString);
-            List<string> listWitWorkers = new List<string>();
 
             connection.Open();
             using (connection)
@@ -141,10 +145,51 @@ namespace SR
 
                 }
             }
-
+            //remove the empty worker
+            workersList3.Remove(workersList3[0]);
         }
 
 
+
+        // CREATE NEW MANIPULATION
+        private void CreateNewManipulation(string orderNumber)
+        {
+
+            string manipDescription = textBox71.Text;
+
+            int amount = 0;
+            if (!String.IsNullOrEmpty(textBox66.Text))
+            {
+                    amount = int.Parse(textBox66.Text);
+            }
+
+            int timeNeeded = 0;
+            if (!String.IsNullOrEmpty(textBox59.Text))
+            {
+                    timeNeeded = int.Parse(textBox59.Text);
+            }
+
+            string worker_id = comboBox10.SelectedValue.ToString();
+
+
+            string manipulation_date = "";
+            if (String.IsNullOrEmpty(textBox52.Text))
+            {
+                manipulation_date = DateTime.Now.ToString("yyyyMMdd");
+            }
+            else
+            {
+                manipulation_date = service.ConverteToDate(textBox52.Text);
+            }
+
+
+            service.createNewManipulation(orderNumber, worker_id, manipDescription, manipulation_date, timeNeeded, amount);
+
+
+            }
+
+
+        //GET ALL WORKERS FOR COMBOBOX
         public List<Worker> GetAllWorkersForCombo()
         {
             connection = new MySqlConnection(MyConnectionString);
@@ -179,6 +224,56 @@ namespace SR
             comboBox4.DataSource = workersList2;
             comboBox4.DisplayMember = "name";
             comboBox4.ValueMember = "id";
+        }
+
+
+        //FOR MANIPULATIONS
+       
+        private void comboBox10_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            comboBox10.DataSource = workersList3;
+            comboBox10.DisplayMember = "name";
+            comboBox10.ValueMember = "id";
+        }
+
+        private void comboBox22_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox22.DataSource = workersList4;
+            comboBox22.DisplayMember = "name";
+            comboBox22.ValueMember = "id";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string num = orderNumber;
+
+            //validations
+            if (comboBox10.SelectedValue == null)
+            {
+                MessageBox.Show("Моля изберете работник");
+            }
+            else if(!service.CheckIfIsInteger(textBox66.Text))
+            {
+                MessageBox.Show("Брой трябва да е число");
+            }
+            else if (!service.CheckIfIsInteger(textBox59.Text))
+            {
+                 MessageBox.Show("Полето Време трябва да е числова стойност");
+            }
+            else if (!string.IsNullOrEmpty(textBox52.Text))
+            {
+                if (service.CheckIfDateIsValid(textBox52.Text))
+                {
+                    MessageBox.Show("Невалидна дата за проба");
+                }
+            }
+            else
+            {
+                CreateNewManipulation(num);
+            }
+
+
         }
     }
 }
