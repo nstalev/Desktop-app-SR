@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SR.Service
 {
-    public class OrderService 
+    public class OrderService
     {
         MySqlConnection connection;
         string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';Charset=utf8";
@@ -59,7 +59,7 @@ namespace SR.Service
 
             connection.Open();
 
-            string createQuery ="INSERT INTO orders " +
+            string createQuery = "INSERT INTO orders " +
                         "(" +
                             "model_name, " +
                             "client_name, " +
@@ -126,7 +126,7 @@ namespace SR.Service
                         $"'{made_by_worker_id}' " +
                          ")";
 
-            
+
 
             using (connection)
             {
@@ -140,36 +140,36 @@ namespace SR.Service
         {
             string pattern = @"([\d]+)";
 
-         
-                Regex regex = new Regex(pattern);
-                MatchCollection matches = regex.Matches(text);
-                List<string> dateList = new List<string>();
 
-                foreach (Match match in matches)
-                {
-                    string first = match.Groups[1].ToString();
-                    dateList.Add(first);
-                }
+            Regex regex = new Regex(pattern);
+            MatchCollection matches = regex.Matches(text);
+            List<string> dateList = new List<string>();
 
-                if (dateList.Count != 3)
+            foreach (Match match in matches)
+            {
+                string first = match.Groups[1].ToString();
+                dateList.Add(first);
+            }
+
+            if (dateList.Count != 3)
+            {
+                return true;
+            }
+            else
+            {
+                if (dateList[2].Length > 2 || int.Parse(dateList[2]) > 31 ||
+                    dateList[1].Length > 2 || int.Parse(dateList[1]) > 12 ||
+                    dateList[0].Length != 4)
                 {
                     return true;
                 }
                 else
                 {
-                    if (dateList[2].Length > 2 || int.Parse(dateList[2]) > 31 ||
-                        dateList[1].Length > 2 || int.Parse(dateList[1]) > 12 ||
-                        dateList[0].Length != 4)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-
+                    return false;
                 }
-                
+
+            }
+
         }
 
 
@@ -189,7 +189,7 @@ namespace SR.Service
             }
 
             string dateString = $"{dateList[0]}-{dateList[1]}-{dateList[2]}";
-                
+
             return dateString;
         }
 
@@ -273,7 +273,7 @@ namespace SR.Service
 
 
                             $"WHERE order_id = '{orderNumber}'";
-                            
+
 
             using (connection)
             {
@@ -282,7 +282,17 @@ namespace SR.Service
             }
         }
 
+        //GET CURRENT MANIPULATIONS
+        public string GetCurrentManipulations(string orderNumber)
+        {
+            return "SELECT w.worker_name AS 'Работник', m.description AS 'Описание', m.manipulation_date AS 'Дата', " +
+                "m.amount AS 'Брой', m.time_needed AS 'Време' " +
+                 $"FROM manipulations AS m " +
+                 "INNER JOIN workers as w " +
+                 "ON m.worker_id = w.worker_id " +
+                 $"WHERE m.order_id = '{orderNumber}' ";
 
+        }
 
         public string selectOnlyWorkerName()
         {
@@ -297,13 +307,13 @@ namespace SR.Service
         public int GetWorkerId(string worker)
         {
             string createQuery = $"SELECT worker_id FROM workers WHERE worker_name ='{worker}'";
-              int result = 0;
+            int result = 0;
 
             connection.Open();
             using (connection)
             {
                 MySqlCommand cmd = new MySqlCommand(createQuery, connection);
-                 result = (int)cmd.ExecuteScalar();
+                result = (int)cmd.ExecuteScalar();
 
             }
             return result;

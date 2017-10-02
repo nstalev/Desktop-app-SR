@@ -145,6 +145,7 @@ namespace SR
 
                 }
             }
+            ShowCurrentManipulations(orderNumber);
             //remove the empty worker
             workersList3.Remove(workersList3[0]);
         }
@@ -185,6 +186,7 @@ namespace SR
 
             service.createNewManipulation(orderNumber, worker_id, manipDescription, manipulation_date, timeNeeded, amount);
 
+            ShowCurrentOrder(orderNumber);
 
             }
 
@@ -257,16 +259,15 @@ namespace SR
             {
                 MessageBox.Show("Брой трябва да е число");
             }
-            else if (!service.CheckIfIsInteger(textBox59.Text))
+            else if (string.IsNullOrEmpty(textBox59.Text) || !service.CheckIfIsInteger(textBox59.Text))
             {
-                 MessageBox.Show("Полето Време трябва да е числова стойност");
+                 MessageBox.Show("Полето Време трябва да бъде попълнено с числова стойност");
             }
-            else if (!string.IsNullOrEmpty(textBox52.Text))
+           
+            else if (!string.IsNullOrEmpty(textBox52.Text) && service.CheckIfDateIsValid(textBox52.Text))
             {
-                if (service.CheckIfDateIsValid(textBox52.Text))
-                {
                     MessageBox.Show("Невалидна дата за проба");
-                }
+                
             }
             else
             {
@@ -274,6 +275,24 @@ namespace SR
             }
 
 
+        }
+
+        //SHOW ALL MANIPULATIONS
+        public void ShowCurrentManipulations(string orderNumber)
+        {
+            connection = new MySqlConnection(MyConnectionString);
+            connection.Open();
+
+            string selectWorker = service.GetCurrentManipulations(orderNumber);
+
+            MySqlCommand command = new MySqlCommand(selectWorker, connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(command);
+            using (DataTable dt = new DataTable())
+            {
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            connection.Close();
         }
     }
 }
