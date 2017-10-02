@@ -37,8 +37,9 @@ namespace SR
             workersList3 = GetAllWorkersForCombo();
             workersList4 = GetAllWorkersForCombo();
             ShowCurrentOrder(orderNumber);
-            
+            remobeEmptyWorker();
         }
+        
 
 
 
@@ -146,7 +147,12 @@ namespace SR
                 }
             }
             ShowCurrentManipulations(orderNumber);
-            //remove the empty worker
+           
+        }
+
+        //remove the empty worker
+        public void remobeEmptyWorker()
+        {
             workersList3.Remove(workersList3[0]);
         }
 
@@ -185,6 +191,13 @@ namespace SR
 
 
             service.createNewManipulation(orderNumber, worker_id, manipDescription, manipulation_date, timeNeeded, amount);
+
+
+            comboBox10.ResetText();
+            textBox71.ResetText();
+            textBox66.ResetText();
+            textBox59.ResetText();
+            textBox52.ResetText();
 
             ShowCurrentOrder(orderNumber);
 
