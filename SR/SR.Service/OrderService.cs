@@ -227,6 +227,7 @@ namespace SR.Service
 
         }
 
+        //CHECK IF THE INPUT IS INTEGER
         public bool CheckIfIsInteger(string text)
         {
             string pattern = @"^\d+$";
@@ -342,6 +343,8 @@ namespace SR.Service
             return $"SELECT * FROM orders WHERE order_id = '{orderNum}'";
         }
 
+
+        //CHECK IF ORDER EXISTS
         public bool CheckIfOrderExists(int orderNum)
         {
             string createQuery = $"SELECT * FROM orders WHERE order_id ='{orderNum}'";

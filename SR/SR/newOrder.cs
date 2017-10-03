@@ -118,13 +118,13 @@ namespace SR
             }
 
 
-
             //SELECT  Cut Out Dress Worker
             string made_by_worker_id = "1";
             if (comboBox4.SelectedValue != null)
             {
                 made_by_worker_id = comboBox4.SelectedValue.ToString();
             }
+
 
             service.CreateNewOrder(textBox1.Text,
                                     textBox2.Text,

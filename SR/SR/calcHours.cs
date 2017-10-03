@@ -42,12 +42,60 @@ namespace SR
             comboBox3.ValueMember = "id";
         }
 
+        
+
+        //GET MANIPULATIONS
+        private void GetManipulationsAndHours()
+        {
+            if (comboBox3.SelectedValue != null && string.IsNullOrEmpty(textBox10.Text))
+            {
+                string worker_id = comboBox3.SelectedValue.ToString();
+
+                string selectQueryByWorker = service.GetSelectQueryByWorker(worker_id);
+                ShowCurrentManipulations(selectQueryByWorker);
+            }
+            else if (comboBox3.SelectedValue == null && !string.IsNullOrEmpty(textBox10.Text))
+            {
+                string selectQueryByOrderId = service.GetSelectQueryByOrderId(textBox10.Text);
+                ShowCurrentManipulations(selectQueryByOrderId);
+            }
+            else if (comboBox3.SelectedValue != null && !string.IsNullOrEmpty(textBox10.Text))
+            {
+                string worker_id = comboBox3.SelectedValue.ToString();
+
+                string selectQueryByOrderId = service.GetSelectQueryByWorkerAndOrderId(textBox10.Text, worker_id);
+                ShowCurrentManipulations(selectQueryByOrderId);
+            }
+
+
+        }
+
+
+
+        //SHOW ALL MANIPULATIONS
+        public void ShowCurrentManipulations(string queryString)
+        {
+            connection = new MySqlConnection(MyConnectionString);
+            connection.Open();
+
+            string selectWorker = queryString;
+
+            MySqlCommand command = new MySqlCommand(selectWorker, connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(command);
+            using (DataTable dt = new DataTable())
+            {
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            connection.Close();
+        }
+
+
         //remove the empty worker
         public void remobeEmptyWorker()
         {
             workersList.Remove(workersList[0]);
         }
-
 
         //GET ALL WORKERS FOR COMBOBOX
         public List<Worker> GetAllWorkersForCombo()
@@ -72,7 +120,26 @@ namespace SR
             return listWitWorkers;
         }
 
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox10.Text) && comboBox3.SelectedValue == null)
+            {
+                MessageBox.Show("Моля изберете някое от полетата");
+            }
+            else if (!string.IsNullOrEmpty(textBox10.Text) && !service.CheckIfIsInteger(textBox10.Text))
+            {
+                MessageBox.Show("Полето с номер на поръчка трябва да бъде числова стойност");
+            }
+            else if (!string.IsNullOrEmpty(textBox10.Text) &&
+                service.CheckIfIsInteger(textBox10.Text) &&
+                service.CheckIfOrderExists(int.Parse(textBox10.Text)))
+            {
+                MessageBox.Show("Поръчка с такъв номер не съществува");
+            }
+            else
+            {
+                GetManipulationsAndHours();
+            }
+        }
     }
 }

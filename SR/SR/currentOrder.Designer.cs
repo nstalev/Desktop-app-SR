@@ -224,6 +224,7 @@
             this.textBox52 = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.label58 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -2103,7 +2104,7 @@
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label44.Location = new System.Drawing.Point(1106, 3353);
+            this.label44.Location = new System.Drawing.Point(1097, 3334);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(79, 25);
             this.label44.TabIndex = 386;
@@ -2181,12 +2182,23 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label58.Location = new System.Drawing.Point(1099, 3359);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(89, 18);
+            this.label58.TabIndex = 393;
+            this.label58.Text = "(в минути)";
+            // 
             // currentOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1583, 1037);
+            this.Controls.Add(this.label58);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label57);
             this.Controls.Add(this.textBox52);
@@ -2589,5 +2601,6 @@
         private System.Windows.Forms.TextBox textBox52;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label58;
     }
 }
