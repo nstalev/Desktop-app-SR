@@ -65,27 +65,38 @@ namespace SR
         //----------CREATE NEW ORDER------------------------
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            connection.Open();
-
-            bool validator = true;
 
 
+            //TEST_DATE
+            if (!String.IsNullOrEmpty(textBox6.Text) && service.CheckIfDateIsValid(textBox6.Text))
+            {
+                MessageBox.Show("Невалидна дата за проба");
+            }
+            else if (!String.IsNullOrEmpty(textBox7.Text) && service.CheckIfDateIsValid(textBox7.Text))
+            {
+                MessageBox.Show("Невалидна дата на сватба");
+
+            }
+            else
+            {
+                CreateOrder();
+            }
+
+             
+
+        }
+
+        private void CreateOrder()
+        {
             //TEST_DATE
             string test_date = "";
             if (String.IsNullOrEmpty(textBox6.Text))
             {
                 test_date = DateTime.Now.ToString("yyyyMMdd");
-                validator = true;
-            }
-            else if (service.CheckIfDateIsValid(textBox6.Text))
-            {
-                MessageBox.Show("Невалидна дата за проба");
-                validator = false;
             }
             else
             {
                 test_date = service.ConverteToDate(textBox6.Text);
-                validator = true;
             }
 
             //weding_date
@@ -93,21 +104,11 @@ namespace SR
             if (String.IsNullOrEmpty(textBox7.Text))
             {
                 weding_date = DateTime.Now.ToString("yyyyMMdd");
-                validator = true;
-            }
-            else if (service.CheckIfDateIsValid(textBox7.Text))
-            {
-                MessageBox.Show("Невалидна дата на сватба");
-                validator = false;
             }
             else
             {
                 weding_date = service.ConverteToDate(textBox7.Text);
-                validator = true;
             }
-
-
-
 
             //SELECT  Cut Out Dress Worker
             string cutoutdress_worker_id = "1";
@@ -120,55 +121,45 @@ namespace SR
 
             //SELECT  Cut Out Dress Worker
             string made_by_worker_id = "1";
-            if (comboBox3.SelectedValue != null)
+            if (comboBox4.SelectedValue != null)
             {
                 made_by_worker_id = comboBox4.SelectedValue.ToString();
             }
 
+            service.CreateNewOrder(textBox1.Text,
+                                    textBox2.Text,
+                                    textBox3.Text,
+                                    textBox4.Text,
+                                    textBox5.Text,
+                                    test_date,
+                                    weding_date,
+                                    textBox8.Text,
+                                    textBox9.Text,
+                                    textBox10.Text,
+                                    textBox11.Text,
+                                    textBox12.Text,
+                                    textBox13.Text,
+                                    textBox14.Text,
+                                    textBox15.Text,
+                                    textBox16.Text,
+                                    textBox17.Text,
+                                    textBox18.Text,
+                                    textBox19.Text,
+                                    textBox20.Text,
+                                    textBox21.Text,
+                                    textBox22.Text,
+                                    textBox23.Text,
+                                    textBox24.Text,
+                                    textBox25.Text,
+                                    textBox26.Text,
 
-            if (validator)
-            {
-                service.CreateNewOrder(textBox1.Text,
-                                       textBox2.Text,
-                                       textBox3.Text,
-                                       textBox4.Text,
-                                       textBox5.Text,
-                                       test_date,
-                                       weding_date,
-                                       textBox8.Text,
-                                       textBox9.Text,
-                                       textBox10.Text,
-                                       textBox11.Text,
-                                       textBox12.Text,
-                                       textBox13.Text,
-                                       textBox14.Text,
-                                       textBox15.Text,
-                                       textBox16.Text,
-                                       textBox17.Text,
-                                       textBox18.Text,
-                                       textBox19.Text,
-                                       textBox20.Text,
-                                       textBox21.Text,
-                                       textBox22.Text,
-                                       textBox23.Text,
-                                       textBox24.Text,
-                                       textBox25.Text,
-                                       textBox26.Text,
+                                    cutoutdress_worker_id,
+                                    made_by_worker_id
+                                 );
 
-                                       cutoutdress_worker_id,
-                                       made_by_worker_id
-                                    );
-
-                this.Hide();
-                var allOrders = new allOrders();
-                allOrders.Show();
-            }
-
-
-
-
-            connection.Close();
-
+            this.Hide();
+            var allOrders = new allOrders();
+            allOrders.Show();
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
