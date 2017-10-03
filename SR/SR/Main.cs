@@ -37,8 +37,6 @@ namespace SR
             this.Hide();
             var calcHours = new calcHours();
             calcHours.Show();
-
-            MessageBox.Show("Това накрая ще го правим");
         }
 
         private void btn_manageWorkers_Click(object sender, EventArgs e)
