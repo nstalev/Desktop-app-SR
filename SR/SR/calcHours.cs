@@ -87,8 +87,30 @@ namespace SR
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
             }
+            List<int> allHours = new List<int>();
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+
+                allHours.Add(int.Parse(reader[5].ToString()));
+            }
+
+            int sumallHours = allHours.Sum();
+            ShowTheTime(sumallHours);
             connection.Close();
         }
+
+
+        private void ShowTheTime(int sum)
+        {
+            int hours = sum / 60;
+            int minutes = sum % 60;
+
+            textBox1.Text = hours.ToString();
+            textBox2.Text = minutes.ToString();
+
+        }
+
 
 
         //remove the empty worker

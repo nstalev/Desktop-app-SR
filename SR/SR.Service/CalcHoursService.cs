@@ -67,8 +67,6 @@ namespace SR.Service
         }
 
 
-
-
         public string GetAllWorkers()
         {
             return "SELECT * FROM workers";
