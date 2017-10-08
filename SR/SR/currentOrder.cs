@@ -66,6 +66,29 @@ namespace SR
                                                    textBox4.Text,
                                                    textBox5.Text,
 
+                                                   //TODO 
+                                                   // update date
+                                                   textBox8.Text,
+                                                   textBox9.Text,
+                                                   textBox10.Text,
+                                                   textBox11.Text,
+                                                   textBox12.Text,
+                                                   textBox13.Text,
+                                                   textBox14.Text,
+                                                   textBox15.Text,
+                                                   textBox16.Text,
+                                                   textBox17.Text,
+                                                   textBox18.Text,
+                                                   textBox19.Text,
+                                                   textBox20.Text,
+                                                   textBox21.Text,
+                                                   textBox22.Text,
+                                                   textBox23.Text,
+                                                   textBox24.Text,
+
+                                                   textBox27.Text,
+
+
                                                    cutoutdress_worker_id,
                                                    made_by_worker_id
                                                    );
@@ -130,6 +153,7 @@ namespace SR
                     textBox24.Text = reader["crystal_tulle"].ToString();
                     textBox25.Text = reader["price"].ToString();
                     textBox26.Text = reader["deposit"].ToString();
+                    textBox27.Text = reader["technical_description"].ToString();
 
 
                     int cutoutdress_worker_id = int.Parse(reader["cutoutdress_worker_id"].ToString());

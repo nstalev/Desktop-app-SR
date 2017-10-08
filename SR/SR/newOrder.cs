@@ -35,14 +35,14 @@ namespace SR
            // WindowState = FormWindowState.Maximized;
             connection = new MySqlConnection(MyConnectionString);
             service = new OrderService();
-            workersList1 = GetAllWorkersForCombo();
-            workersList2 = GetAllWorkersForCombo(); 
-            workersList3 = GetAllWorkersForCombo();
-            workersList4 = GetAllWorkersForCombo();
-            workersList5 = GetAllWorkersForCombo();
-            workersList6 = GetAllWorkersForCombo();
-            workersList7 = GetAllWorkersForCombo();
-            workersList8 = GetAllWorkersForCombo();
+           // workersList1 = GetAllWorkersForCombo();
+           // workersList2 = GetAllWorkersForCombo(); 
+           // workersList3 = GetAllWorkersForCombo();
+           // workersList4 = GetAllWorkersForCombo();
+           // workersList5 = GetAllWorkersForCombo();
+           // workersList6 = GetAllWorkersForCombo();
+           // workersList7 = GetAllWorkersForCombo();
+           // workersList8 = GetAllWorkersForCombo();
         }
 
         private void newOrder_Load(object sender, EventArgs e)
@@ -73,8 +73,20 @@ namespace SR
         {
 
 
-            //TEST_DATE
-            if (!String.IsNullOrEmpty(textBox6.Text) && service.CheckIfDateIsValid(textBox6.Text))
+            //VALIDATIONS
+            if (String.IsNullOrEmpty(textBox2.Text))
+            {
+                MessageBox.Show("Моля въведете име на клиента");
+            }
+            else if(String.IsNullOrEmpty(textBox3.Text))
+            {
+                MessageBox.Show("Моля въведете град");
+            }
+            else if (String.IsNullOrEmpty(textBox5.Text))
+            {
+                MessageBox.Show("Моля въведете телефон на клиента");
+            }
+            else if (!String.IsNullOrEmpty(textBox6.Text) && service.CheckIfDateIsValid(textBox6.Text))
             {
                 MessageBox.Show("Невалидна дата за проба");
             }
@@ -158,6 +170,7 @@ namespace SR
                                     textBox24.Text,
                                     textBox25.Text,
                                     textBox26.Text,
+                                    textBox27.Text,
 
                                     cutoutdress_worker_id,
                                     made_by_worker_id
@@ -175,6 +188,8 @@ namespace SR
      //       comboBox3.ValueMember = "id";
      //   }
 
+
+            //GET ALL WORKERS
         public List<Worker> GetAllWorkersForCombo()
         {
             connection = new MySqlConnection(MyConnectionString);

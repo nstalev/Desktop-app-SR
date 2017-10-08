@@ -51,6 +51,7 @@ namespace SR.Service
                                      string crystal_tulle,
                                      string price,
                                      string deposit,
+                                     string technical_description,
 
                                      string cutoutdress_worker_id,
                                      string made_by_worker_id
@@ -87,6 +88,8 @@ namespace SR.Service
                             "crystal_tulle, " +
                             "price, " +
                             "deposit, " +
+                            "technical_description, " +
+                            
 
 
                             "cutoutdress_worker_id, " +
@@ -121,6 +124,7 @@ namespace SR.Service
                         $"'{crystal_tulle}', " +
                         $"'{price}', " +
                         $"'{deposit}', " +
+                        $"'{technical_description}', " +
 
                         $"'{cutoutdress_worker_id}', " +
                         $"'{made_by_worker_id}' " +
@@ -253,6 +257,27 @@ namespace SR.Service
                                              string city,
                                              string school,
                                              string phone,
+                                             //TODO 
+                                             // update date
+                                             string chest_lap,
+                                             string podgradna_lap,
+                                             string waist_measurement,
+                                             string low_waist,
+                                             string lap_hips,
+                                             string skirt_lenght_front,
+                                             string skirt_lenght_back,
+                                             string sleeve_length,
+                                             string tour_biceps,
+                                             string length_from_shoulder_to_tq,
+                                             string length_from_7shp_to_waist,
+                                             string length_from_7shp_to_floor,
+                                             string line_of_skirt_attachment,
+                                             string place_of_skirt_attachment,
+                                             string princess_number_of_skirts,
+                                             string italian_tulle,
+                                             string crystal_tulle,
+                                             string technical_description,
+
 
                                              string cutoutdress_worker_id,
                                              string made_by_worker_id)
@@ -266,6 +291,24 @@ namespace SR.Service
                             $"city='{city}', " +
                             $"school='{school}', " +
                             $"phone='{phone}', " +
+                            $"chest_lap='{chest_lap}', " +
+                            $"podgradna_lap='{podgradna_lap}', " +
+                            $"waist_measurement='{waist_measurement}', " +
+                            $"low_waist='{low_waist}', " +
+                            $"lap_hips='{lap_hips}', " +
+                            $"skirt_lenght_front='{skirt_lenght_front}', " +
+                            $"skirt_lenght_back='{skirt_lenght_back}', " +
+                            $"sleeve_length='{sleeve_length}', " +
+                            $"tour_biceps='{tour_biceps}', " +
+                            $"length_from_shoulder_to_tq='{length_from_shoulder_to_tq}', " +
+                            $"length_from_7shp_to_waist='{length_from_7shp_to_waist}', " +
+                            $"length_from_7shp_to_floor='{length_from_7shp_to_floor}', " +
+                            $"line_of_skirt_attachment='{line_of_skirt_attachment}', " +
+                            $"place_of_skirt_attachment='{place_of_skirt_attachment}', " +
+                            $"princess_number_of_skirts='{princess_number_of_skirts}', " +
+                            $"italian_tulle='{italian_tulle}', " +
+                            $"crystal_tulle='{crystal_tulle}', " +
+                            $"technical_description='{technical_description}', " +
 
 
 
@@ -323,13 +366,12 @@ namespace SR.Service
 
         public string GetAllOrders()
         {
-            return "SELECT o.order_id, o.model_name, o.client_name, o.city, o.phone, " +
-                "w.worker_name AS 'Cut out Dress by', wo.worker_name AS 'Dress made by'" +
+            return "SELECT o.order_id AS 'Номер на поръчката', o.model_name AS 'Име на модел', o.client_name AS 'Име на клиент', " +
+                "o.city AS 'Град', o.phone AS 'Телефон', o.weding_date AS 'Дата на Сватбата'," +
+                "w.worker_name AS 'Изработва'" +
                 "FROM orders AS o " +
                 "INNER JOIN workers as w " +
-                "ON o.cutoutdress_worker_id = w.worker_id " +
-                "INNER JOIN workers as wo " +
-                "ON o.made_by_worker_id = wo.worker_id " +
+                "ON o.made_by_worker_id = w.worker_id " +
                 "ORDER BY o.order_id DESC";
         }
 
