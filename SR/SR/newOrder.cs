@@ -30,6 +30,9 @@ namespace SR
         public newOrder()
         {
             InitializeComponent();
+           //Разпъва формата.
+           // FormBorderStyle = FormBorderStyle.Sizable;
+           // WindowState = FormWindowState.Maximized;
             connection = new MySqlConnection(MyConnectionString);
             service = new OrderService();
             workersList1 = GetAllWorkersForCombo();
@@ -44,7 +47,10 @@ namespace SR
 
         private void newOrder_Load(object sender, EventArgs e)
         {
-
+           this.TopMost = true;
+           this.FormBorderStyle = FormBorderStyle.None;
+           this.WindowState = FormWindowState.Maximized;
+           
         }
 
 
@@ -112,18 +118,18 @@ namespace SR
 
             //SELECT  Cut Out Dress Worker
             string cutoutdress_worker_id = "1";
-            if (comboBox3.SelectedValue != null)
-            {
-                cutoutdress_worker_id = comboBox3.SelectedValue.ToString();
-            }
+         //  if (comboBox3.SelectedValue != null)
+         //  {
+         //      cutoutdress_worker_id = comboBox3.SelectedValue.ToString();
+         //  }
 
 
             //SELECT  Cut Out Dress Worker
-            string made_by_worker_id = "1";
-            if (comboBox4.SelectedValue != null)
-            {
-                made_by_worker_id = comboBox4.SelectedValue.ToString();
-            }
+           string made_by_worker_id = "1";
+          // if (comboBox4.SelectedValue != null)
+          // {
+          //     made_by_worker_id = comboBox4.SelectedValue.ToString();
+          // }
 
 
             service.CreateNewOrder(textBox1.Text,
@@ -162,73 +168,12 @@ namespace SR
             allOrders.Show();
         }
 
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox3.DataSource = workersList1;
-            comboBox3.DisplayMember = "name";
-            comboBox3.ValueMember = "id";
-        }
-
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox4.DataSource = workersList2;
-            comboBox4.DisplayMember = "name";
-            comboBox4.ValueMember = "id";
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox1.Items.Add("Да");
-            comboBox1.Items.Add("Не");
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox2.Items.Add("Да");
-            comboBox2.Items.Add("Не");
-        }
-
-        private void comboBox22_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox22.DataSource = workersList3;
-            comboBox22.DisplayMember = "name";
-            comboBox22.ValueMember = "id";
-        }
-
-        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox5.DataSource = workersList4;
-            comboBox5.DisplayMember = "name";
-            comboBox5.ValueMember = "id";
-        }
-
-        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox6.DataSource = workersList5;
-            comboBox6.DisplayMember = "name";
-            comboBox6.ValueMember = "id";
-        }
-
-        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox7.DataSource = workersList6;
-            comboBox7.DisplayMember = "name";
-            comboBox7.ValueMember = "id";
-        }
-
-        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox8.DataSource = workersList7;
-            comboBox8.DisplayMember = "name";
-            comboBox8.ValueMember = "id";
-        }
-
-        private void comboBox9_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox9.DataSource = workersList8;
-            comboBox9.DisplayMember = "name";
-            comboBox9.ValueMember = "id";
-        }
+     //   private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+     //   {
+     //       comboBox3.DataSource = workersList1;
+     //       comboBox3.DisplayMember = "name";
+     //       comboBox3.ValueMember = "id";
+     //   }
 
         public List<Worker> GetAllWorkersForCombo()
         {
@@ -252,5 +197,14 @@ namespace SR
             return listWitWorkers;
         }
 
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox27_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
