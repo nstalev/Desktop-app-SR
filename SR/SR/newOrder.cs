@@ -221,5 +221,10 @@ namespace SR
         {
 
         }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            textBox7.Text = monthCalendar1.SelectionRange.Start.ToShortDateString();
+        }
     }
 }
