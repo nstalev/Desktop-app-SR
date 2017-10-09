@@ -24,7 +24,7 @@ namespace SR
             InitializeComponent();
             connection = new MySqlConnection(MyConnectionString);
             service = new OrderService();
-            ShowAllOrders();
+            ShowAllOrders(service.GetAllOrders());
         }
 
         private void btn_Main3_Click(object sender, EventArgs e)
@@ -40,14 +40,14 @@ namespace SR
         }
 
 
-        public void ShowAllOrders()
+        public void ShowAllOrders(string querySelect)
         {
             connection = new MySqlConnection(MyConnectionString);
             connection.Open();
 
-            string selectAllOrders = service.GetAllOrders();
+            //string querySelect = service.GetAllOrders();
 
-            MySqlCommand command = new MySqlCommand(selectAllOrders, connection);
+            MySqlCommand command = new MySqlCommand(querySelect, connection);
             MySqlDataAdapter da = new MySqlDataAdapter(command);
             using (DataTable dt = new DataTable())
             {
@@ -90,6 +90,41 @@ namespace SR
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+
+       // private void SearchOrder()
+       // {
+       //     if (!String.IsNullOrEmpty(textBox1.Text) && !String.IsNullOrEmpty(textBox2.Text))
+       //     {
+       //         MessageBox.Show("Моля попълнете само едно от полетата за търсене");
+       //     }
+       //
+       //
+       // }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(textBox1.Text) && !String.IsNullOrEmpty(textBox2.Text))
+            {
+                MessageBox.Show("Моля попълнете само едно от полетата за търсене");
+            }
+            else if (String.IsNullOrEmpty(textBox1.Text) && String.IsNullOrEmpty(textBox2.Text))
+            {
+                string querySelect = service.GetAllOrders();
+                ShowAllOrders(querySelect);
+            }
+            else if (!String.IsNullOrEmpty(textBox1.Text) && String.IsNullOrEmpty(textBox2.Text))
+            {
+                string querySelect = service.GetOrdersByClientName(textBox1.Text);
+                ShowAllOrders(querySelect);
+            }
+            else if (String.IsNullOrEmpty(textBox1.Text) && !String.IsNullOrEmpty(textBox2.Text))
+            {
+                string querySelect = service.GetOrdersByPhoneNumber(textBox2.Text);
+                ShowAllOrders(querySelect);
+            }
         }
     }
 }

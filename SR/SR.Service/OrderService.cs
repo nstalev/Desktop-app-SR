@@ -139,6 +139,8 @@ namespace SR.Service
             }
         }
 
+
+
         //CHECK IF DATE IS VALID
         public bool CheckIfDateIsValid(string text)
         {
@@ -198,7 +200,7 @@ namespace SR.Service
         }
 
         //CREATE NEW MANIPULATION
-        public void createNewManipulation(string orderNumber, string worker_id, string manipDescription, string manipulation_date, int timeNeeded, int amount)
+        public void createNewManipulation(string orderNumber, string worker_id, string manipDescription, string manipulation_date, int timeNeeded, int amount, int category)
         {
             connection.Open();
 
@@ -209,6 +211,7 @@ namespace SR.Service
                             "manipulation_date, " +
                             "time_needed, " +
                             "amount, " +
+                            "category, " +
                             "worker_id, " +
                             "order_id " +
                         ") " +
@@ -218,6 +221,7 @@ namespace SR.Service
                         $"'{manipulation_date}', " +
                         $"'{timeNeeded}', " +
                         $"'{amount}', " +
+                        $"'{category}', " +
                         $"'{worker_id}', " +
                         $"'{orderNumber}' " +
                          ")";
@@ -329,7 +333,8 @@ namespace SR.Service
         //GET CURRENT MANIPULATIONS
         public string GetCurrentManipulations(string orderNumber)
         {
-            return "SELECT w.worker_name AS 'Работник', m.description AS 'Описание', m.manipulation_date AS 'Дата', " +
+            return "SELECT m.maniulation_id AS 'Номер',  m.category AS 'Категория'," +
+                "w.worker_name AS 'Работник', m.description AS 'Описание', m.manipulation_date AS 'Дата', " +
                 "m.amount AS 'Брой', m.time_needed AS 'Време' " +
                  $"FROM manipulations AS m " +
                  "INNER JOIN workers as w " +
@@ -375,10 +380,32 @@ namespace SR.Service
                 "ORDER BY o.order_id DESC";
         }
 
+        public string GetOrdersByClientName(string clientName)
+        {
 
+            return "SELECT o.order_id AS 'Номер на поръчката', o.model_name AS 'Име на модел', o.client_name AS 'Име на клиент', " +
+                 "o.city AS 'Град', o.phone AS 'Телефон', o.weding_date AS 'Дата на Сватбата'," +
+                 "w.worker_name AS 'Изработва'" +
+                 "FROM orders AS o " +
+                 "INNER JOIN workers as w " +
+                 "ON o.made_by_worker_id = w.worker_id " +
+                 $"WHERE o.client_name LIKE '%{clientName}%' " +
+                 "ORDER BY o.order_id DESC";
+        }
+        public string GetOrdersByPhoneNumber(string phoneNumber)
+        {
 
+            return "SELECT o.order_id AS 'Номер на поръчката', o.model_name AS 'Име на модел', o.client_name AS 'Име на клиент', " +
+                 "o.city AS 'Град', o.phone AS 'Телефон', o.weding_date AS 'Дата на Сватбата'," +
+                 "w.worker_name AS 'Изработва'" +
+                 "FROM orders AS o " +
+                 "INNER JOIN workers as w " +
+                 "ON o.made_by_worker_id = w.worker_id " +
+                 $"WHERE o.phone LIKE '%{phoneNumber}%' " +
+                 "ORDER BY o.order_id DESC";
+        }
 
-
+        
 
         public string GetCurrentOrderQuery(string orderNum)
         {

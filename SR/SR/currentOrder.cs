@@ -25,6 +25,7 @@ namespace SR
         List<Worker> workersList2 = new List<Worker>();
         List<Worker> workersList3 = new List<Worker>();
         List<Worker> workersList4 = new List<Worker>();
+        List<int> categoryList = new List<int>();
 
 
         public currentOrder()
@@ -38,6 +39,7 @@ namespace SR
             workersList4 = GetAllWorkersForCombo();
             ShowCurrentOrder(orderNumber);
             remobeEmptyWorker();
+            FillCategoryLIst();
         }
         
 
@@ -174,6 +176,17 @@ namespace SR
            
         }
 
+        //Fill CategoryLIST
+
+        private void FillCategoryLIst()
+        {
+            categoryList.Add(1);
+            categoryList.Add(2);
+            categoryList.Add(3);
+            categoryList.Add(4);
+            categoryList.Add(5);
+        }
+
         //remove the empty worker
         public void remobeEmptyWorker()
         {
@@ -201,6 +214,7 @@ namespace SR
             }
 
             string worker_id = comboBox10.SelectedValue.ToString();
+            int category = int.Parse(comboBox11.SelectedValue.ToString());
 
 
             string manipulation_date = "";
@@ -214,10 +228,13 @@ namespace SR
             }
 
 
-            service.createNewManipulation(orderNumber, worker_id, manipDescription, manipulation_date, timeNeeded, amount);
+            service.createNewManipulation(orderNumber, worker_id, manipDescription, manipulation_date, timeNeeded, amount, category);
 
 
             comboBox10.ResetText();
+            comboBox10.DataSource = null;
+            comboBox11.ResetText();
+            comboBox11.DataSource = null;
             textBox71.ResetText();
             textBox66.ResetText();
             textBox59.ResetText();
@@ -292,6 +309,10 @@ namespace SR
             {
                 MessageBox.Show("Моля изберете работник");
             }
+            else if (comboBox11.SelectedValue == null)
+            {
+                MessageBox.Show("Моля изберете категория");
+            }
             else if(!service.CheckIfIsInteger(textBox66.Text))
             {
                 MessageBox.Show("Брой трябва да е число");
@@ -311,6 +332,7 @@ namespace SR
                 CreateNewManipulation(num);
             }
 
+            //TODO    clear comboboxes
 
         }
 
@@ -340,8 +362,13 @@ namespace SR
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
+        }
 
-
+        private void comboBox11_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox11.DataSource = categoryList;
+           // comboBox22.DisplayMember = "name";
+           // comboBox22.ValueMember = "id";
         }
     }
 }

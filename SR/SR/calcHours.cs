@@ -92,7 +92,7 @@ namespace SR
             while (reader.Read())
             {
 
-                allHours.Add(int.Parse(reader[5].ToString()));
+                allHours.Add(int.Parse(reader[6].ToString()));
             }
 
             int sumallHours = allHours.Sum();

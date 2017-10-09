@@ -76,7 +76,7 @@ namespace SR.Service
 
         public string GetSelectQueryByWorker(string worker_id)
         {
-            return "SELECT m.order_id AS 'Поръчна номер', w.worker_name AS 'Работник', m.description AS 'Описание', m.manipulation_date AS 'Дата', " +
+            return "SELECT m.order_id AS 'Поръчна номер', w.worker_name AS 'Работник', m.category AS 'Категория на Манипулацията', m.description AS 'Описание', m.manipulation_date AS 'Дата', " +
                 "m.amount AS 'Брой', m.time_needed AS 'Време' " +
                  $"FROM manipulations AS m " +
                  "INNER JOIN workers as w " +
@@ -86,7 +86,7 @@ namespace SR.Service
 
         public string GetSelectQueryByWorkerAndOrderId(string order_id, string worker_id)
         {
-            return "SELECT m.order_id AS 'Поръчна номер', w.worker_name AS 'Работник', m.description AS 'Описание', m.manipulation_date AS 'Дата', " +
+            return "SELECT m.order_id AS 'Поръчна номер', w.worker_name AS 'Работник', m.category AS 'Категория на Манипулацията', m.description AS 'Описание', m.manipulation_date AS 'Дата', " +
               "m.amount AS 'Брой', m.time_needed AS 'Време' " +
                $"FROM manipulations AS m " +
                "INNER JOIN workers as w " +
@@ -97,7 +97,7 @@ namespace SR.Service
 
         public string GetSelectQueryByOrderId(string order_id)
         {
-            return "SELECT m.order_id AS 'Поръчна номер', w.worker_name AS 'Работник', m.description AS 'Описание', m.manipulation_date AS 'Дата', " +
+            return "SELECT m.order_id AS 'Поръчна номер', w.worker_name AS 'Работник', m.category AS 'Категория на Манипулацията', m.description AS 'Описание', m.manipulation_date AS 'Дата', " +
                 "m.amount AS 'Брой', m.time_needed AS 'Време' " +
                  $"FROM manipulations AS m " +
                  "INNER JOIN workers as w " +
