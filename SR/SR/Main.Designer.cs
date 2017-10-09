@@ -49,6 +49,7 @@
             // 
             // newOrder
             // 
+            this.newOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.newOrder.Location = new System.Drawing.Point(45, 158);
             this.newOrder.Name = "newOrder";
             this.newOrder.Size = new System.Drawing.Size(108, 57);
@@ -59,6 +60,7 @@
             // 
             // allOrders
             // 
+            this.allOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.allOrders.Location = new System.Drawing.Point(45, 221);
             this.allOrders.Name = "allOrders";
             this.allOrders.Size = new System.Drawing.Size(108, 57);
@@ -69,21 +71,23 @@
             // 
             // calcHours
             // 
+            this.calcHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.calcHours.Location = new System.Drawing.Point(45, 284);
             this.calcHours.Name = "calcHours";
             this.calcHours.Size = new System.Drawing.Size(108, 57);
             this.calcHours.TabIndex = 4;
-            this.calcHours.Text = "Изчисляване на работни часове и манипулации";
+            this.calcHours.Text = "Заплати";
             this.calcHours.UseVisualStyleBackColor = true;
             this.calcHours.Click += new System.EventHandler(this.calcHours_Click);
             // 
             // btn_manageWorkers
             // 
+            this.btn_manageWorkers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_manageWorkers.Location = new System.Drawing.Point(45, 347);
             this.btn_manageWorkers.Name = "btn_manageWorkers";
             this.btn_manageWorkers.Size = new System.Drawing.Size(108, 57);
             this.btn_manageWorkers.TabIndex = 5;
-            this.btn_manageWorkers.Text = "Управлявай работници";
+            this.btn_manageWorkers.Text = "Работници";
             this.btn_manageWorkers.UseVisualStyleBackColor = true;
             this.btn_manageWorkers.Click += new System.EventHandler(this.btn_manageWorkers_Click);
             // 

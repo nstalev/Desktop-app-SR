@@ -83,7 +83,6 @@
             this.textBox28 = new System.Windows.Forms.TextBox();
             this.textBox29 = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.btn_Main = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Main2 = new System.Windows.Forms.Button();
             this.label92 = new System.Windows.Forms.Label();
@@ -103,6 +102,9 @@
             this.textBox41 = new System.Windows.Forms.TextBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
+            this.label31 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -600,22 +602,11 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label30.Location = new System.Drawing.Point(12, 9);
+            this.label30.Location = new System.Drawing.Point(256, 19);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(95, 20);
             this.label30.TabIndex = 69;
             this.label30.Text = "Поръчка №";
-            // 
-            // btn_Main
-            // 
-            this.btn_Main.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_Main.Location = new System.Drawing.Point(16, 46);
-            this.btn_Main.Name = "btn_Main";
-            this.btn_Main.Size = new System.Drawing.Size(111, 39);
-            this.btn_Main.TabIndex = 70;
-            this.btn_Main.Text = "Меню";
-            this.btn_Main.UseVisualStyleBackColor = true;
-            this.btn_Main.Click += new System.EventHandler(this.btn_Main_Click);
             // 
             // btn_Save
             // 
@@ -780,7 +771,7 @@
             // monthCalendar1
             // 
             this.monthCalendar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.monthCalendar1.Location = new System.Drawing.Point(16, 118);
+            this.monthCalendar1.Location = new System.Drawing.Point(18, 249);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 242;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
@@ -795,12 +786,42 @@
             this.label26.TabIndex = 243;
             this.label26.Text = "Нова поръчка";
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label27.Location = new System.Drawing.Point(14, 223);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(161, 20);
+            this.label27.TabIndex = 244;
+            this.label27.Text = "Дата на сватбата";
+            // 
+            // monthCalendar2
+            // 
+            this.monthCalendar2.Location = new System.Drawing.Point(20, 58);
+            this.monthCalendar2.Name = "monthCalendar2";
+            this.monthCalendar2.TabIndex = 245;
+            this.monthCalendar2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar2_DateChanged);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label31.Location = new System.Drawing.Point(16, 29);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(132, 20);
+            this.label31.TabIndex = 246;
+            this.label31.Text = "Дата на проба";
+            // 
             // newOrder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1353, 917);
+            this.Controls.Add(this.label31);
+            this.Controls.Add(this.monthCalendar2);
+            this.Controls.Add(this.label27);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.textBox40);
@@ -820,7 +841,6 @@
             this.Controls.Add(this.label92);
             this.Controls.Add(this.btn_Main2);
             this.Controls.Add(this.btn_Save);
-            this.Controls.Add(this.btn_Main);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.textBox29);
             this.Controls.Add(this.textBox28);
@@ -941,7 +961,6 @@
         private System.Windows.Forms.TextBox textBox28;
         private System.Windows.Forms.TextBox textBox29;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Button btn_Main;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Main2;
         private System.Windows.Forms.Label label92;
@@ -961,5 +980,8 @@
         private System.Windows.Forms.TextBox textBox41;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.MonthCalendar monthCalendar2;
+        private System.Windows.Forms.Label label31;
     }
 }
