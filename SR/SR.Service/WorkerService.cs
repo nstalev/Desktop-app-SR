@@ -20,9 +20,9 @@ namespace SR.Service
             return "SELECT * FROM workers";
         }
 
-        public string DeleteWorker(string comboBox)
+        public string DeleteWorker(string worker_id)
         {
-            return $"DELETE FROM workers WHERE worker_name = '{comboBox}'";
+            return $"DELETE FROM workers WHERE worker_id = '{worker_id}'";
         }
 
         public string selectOnlyWorkerName()

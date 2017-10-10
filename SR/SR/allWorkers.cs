@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using System.Data.Common;
 using SR.Service;
+using SR.Models;
 
 namespace SR
 {
@@ -19,6 +20,7 @@ namespace SR
         private WorkerService service;
         MySqlConnection connection;
         string MyConnectionString = "Server=localhost;Database=SR_database;Uid=root;Pwd='';Charset=utf8";
+        List<Worker> workersList1 = new List<Worker>();
 
 
         public allWorkers()
@@ -27,6 +29,7 @@ namespace SR
 
             connection = new MySqlConnection(MyConnectionString);
             service = new WorkerService();
+            workersList1 = GetAllWorkersForCombo();
             ShowAllWorkers();
         }
 
@@ -39,18 +42,33 @@ namespace SR
 
         private void btn_createWorker_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(textBox1.Text))
+            {
+                MessageBox.Show("Моля напишете име");
+            }
+            else
+            {
+                CreateNewWorker();
+            }
+
+        }
+
+
+        private void CreateNewWorker()
+        {
             MySqlCommand cmd;
             connection.Open();
-          
-                cmd = connection.CreateCommand();
-                cmd.CommandText = service.CreateWorker(textBox1.Text);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Вие създадохте нов работник с име: " + textBox1.Text);
+
+            cmd = connection.CreateCommand();
+            cmd.CommandText = service.CreateWorker(textBox1.Text);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Вие създадохте нов работник с име: " + textBox1.Text);
 
             textBox1.ResetText();
             ShowAllWorkers();
 
             connection.Close();
+            workersList1 = GetAllWorkersForCombo();
         }
 
         private void allWorkers_Load(object sender, EventArgs e)
@@ -65,49 +83,51 @@ namespace SR
 
         private void btn_deleteWorker_Click(object sender, EventArgs e)
         {
+
+            if (comboBox1.SelectedValue == null)
+            {
+                MessageBox.Show("Моля изберете работник");
+            }
+            else if (comboBox1.SelectedValue != null)
+            {
+                DeleteWorker(comboBox1.SelectedValue.ToString());
+            }
+
+           
+        }
+
+
+
+        //DELETE Worker
+        private void DeleteWorker(string worker_id)
+        {
             MySqlCommand cmd;
             connection.Open();
 
 
-            string deleteWorker = comboBox1.SelectedItem.ToString();
-
             cmd = connection.CreateCommand();
-            cmd.CommandText = service.DeleteWorker(deleteWorker);
+            cmd.CommandText = service.DeleteWorker(worker_id);
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Вие изтрихте работник с име: " + deleteWorker);
+             MessageBox.Show("Вие изтрихте работник с ID: " + worker_id);
 
-
-            MySqlCommand command = new MySqlCommand(service.DeleteWorker(deleteWorker), connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-            using (DataTable dt = new DataTable())
-            {
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-            }
             connection.Close();
 
-            comboBox1.Items.Clear();
             comboBox1.ResetText();
+            comboBox1.DataSource = null;
             ShowAllWorkers();
+            workersList1 = GetAllWorkersForCombo();
+
         }
+
+
+
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //comboBox1.Items.Clear();
-
-            connection.Open();
-            MySqlCommand command = new MySqlCommand(service.selectOnlyWorkerName(), connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-
-            using (DataTable dt = new DataTable())
-            {
-                da.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    comboBox1.Items.Add(dr["worker_name"]);
-                }
-            }
-            connection.Close();
+            comboBox1.DataSource = workersList1;
+            comboBox1.DisplayMember = "name";
+            comboBox1.ValueMember = "id";
         }
 
         public void ShowAllWorkers()
@@ -125,6 +145,30 @@ namespace SR
                 dataGridView1.DataSource = dt;
             }
             connection.Close();
+        }
+
+
+        //GET ALL WORKERS FOR COMBOBOX
+        public List<Worker> GetAllWorkersForCombo()
+        {
+            connection = new MySqlConnection(MyConnectionString);
+            connection.Open();
+
+            List<Worker> listWitWorkers = new List<Worker>();
+
+            using (connection)
+            {
+                MySqlCommand command1 = new MySqlCommand(service.GetAllWorkers(), connection);
+                MySqlDataReader reader = command1.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    listWitWorkers.Add(new Worker() { Id = int.Parse(reader[0].ToString()), Name = reader[1].ToString() });
+                }
+
+            }
+
+            return listWitWorkers;
         }
     }
 }
