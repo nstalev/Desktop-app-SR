@@ -139,6 +139,33 @@ namespace SR.Service
             }
         }
 
+        public string[] GetAllClientNames()
+        {
+            
+            string query = "SELECT  o.client_name " +
+              "FROM orders AS o " +
+              "ORDER BY o.client_name";
+
+            connection.Open();
+
+            List<string> clientNamesList = new List<string>();
+
+            using (connection)
+            {
+                MySqlCommand command1 = new MySqlCommand(query, connection);
+                MySqlDataReader reader = command1.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    clientNamesList.Add(reader[0].ToString());
+                }
+
+            }
+
+            return clientNamesList.ToArray();
+
+        }
+
 
 
         //CHECK IF DATE IS VALID
