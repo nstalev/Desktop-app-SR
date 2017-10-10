@@ -139,6 +139,8 @@ namespace SR.Service
             }
         }
 
+
+        //GET ALL CLIENT NAMES FOR AUTOCOMPLETE
         public string[] GetAllClientNames()
         {
             
@@ -163,6 +165,33 @@ namespace SR.Service
             }
 
             return clientNamesList.ToArray();
+
+        }
+
+        //GET ALL PHONES FOR AUTOCOMPLETE
+        public string[] GetAllPhoneNumbers()
+        {
+
+            string query = "SELECT  o.phone " +
+              "FROM orders AS o ";
+
+            connection.Open();
+
+            List<string> phoneNumbersList = new List<string>();
+
+            using (connection)
+            {
+                MySqlCommand command1 = new MySqlCommand(query, connection);
+                MySqlDataReader reader = command1.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    phoneNumbersList.Add(reader[0].ToString());
+                }
+
+            }
+
+            return phoneNumbersList.ToArray();
 
         }
 
