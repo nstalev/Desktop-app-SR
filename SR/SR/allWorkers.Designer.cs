@@ -43,11 +43,13 @@
             // 
             // btn_Main6
             // 
+            this.btn_Main6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Main6.ForeColor = System.Drawing.Color.Black;
             this.btn_Main6.Location = new System.Drawing.Point(13, 13);
             this.btn_Main6.Name = "btn_Main6";
-            this.btn_Main6.Size = new System.Drawing.Size(111, 48);
+            this.btn_Main6.Size = new System.Drawing.Size(104, 48);
             this.btn_Main6.TabIndex = 0;
-            this.btn_Main6.Text = "Главно меню";
+            this.btn_Main6.Text = "Меню";
             this.btn_Main6.UseVisualStyleBackColor = true;
             this.btn_Main6.Click += new System.EventHandler(this.btn_Main6_Click);
             // 
@@ -55,6 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(349, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(213, 20);
@@ -81,6 +84,8 @@
             // 
             // btn_createWorker
             // 
+            this.btn_createWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_createWorker.ForeColor = System.Drawing.Color.Black;
             this.btn_createWorker.Location = new System.Drawing.Point(736, 41);
             this.btn_createWorker.Name = "btn_createWorker";
             this.btn_createWorker.Size = new System.Drawing.Size(122, 26);
@@ -103,6 +108,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(349, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(209, 20);
@@ -122,6 +128,8 @@
             // 
             // btn_deleteWorker
             // 
+            this.btn_deleteWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_deleteWorker.ForeColor = System.Drawing.Color.Black;
             this.btn_deleteWorker.Location = new System.Drawing.Point(736, 172);
             this.btn_deleteWorker.Name = "btn_deleteWorker";
             this.btn_deleteWorker.Size = new System.Drawing.Size(122, 26);

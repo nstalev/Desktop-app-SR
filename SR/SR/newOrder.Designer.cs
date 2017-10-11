@@ -610,7 +610,8 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Save.ForeColor = System.Drawing.Color.Black;
             this.btn_Save.Location = new System.Drawing.Point(1348, 817);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(143, 46);
@@ -621,7 +622,8 @@
             // 
             // btn_Main2
             // 
-            this.btn_Main2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Main2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Main2.ForeColor = System.Drawing.Color.Black;
             this.btn_Main2.Location = new System.Drawing.Point(1199, 817);
             this.btn_Main2.Name = "btn_Main2";
             this.btn_Main2.Size = new System.Drawing.Size(143, 46);
