@@ -40,6 +40,9 @@ namespace SR
             ShowCurrentOrder(orderNumber);
             remobeEmptyWorker();
             FillCategoryLIst();
+            DataGridViewRow row = this.dataGridView1.RowTemplate;
+            row.DefaultCellStyle.BackColor = Color.Bisque;
+            row.Height = 35;
         }
         
 
@@ -358,9 +361,10 @@ namespace SR
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //dataGridView1.DefaultCellStyle.Font = new Font ("Verdana", 10, FontStyle.Bold);
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+          //dataGridView1.DefaultCellStyle.Font = new Font ("Verdana", 10, FontStyle.Bold);
+          // dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+          // dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
 
         }
 
@@ -369,6 +373,18 @@ namespace SR
             comboBox11.DataSource = categoryList;
            // comboBox22.DisplayMember = "name";
            // comboBox22.ValueMember = "id";
+        }
+
+        private void textBox27_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            var dataGridView = sender as DataGridView;
+            e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
+            e.CellStyle.Font = new Font("Arial", 9.5F, FontStyle.Bold);
         }
     }
 }

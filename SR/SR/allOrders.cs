@@ -25,6 +25,13 @@ namespace SR
             connection = new MySqlConnection(MyConnectionString);
             service = new OrderService();
             ShowAllOrders(service.GetAllOrders());
+           //dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+           //dataGridView1.AllowUserToResizeRows = false;
+
+            DataGridViewRow row = this.dataGridView1.RowTemplate;
+            row.DefaultCellStyle.BackColor = Color.Bisque;
+            row.Height = 35;
+            //row.MinimumHeight = 20;
         }
 
         private void btn_Main3_Click(object sender, EventArgs e)
@@ -36,7 +43,14 @@ namespace SR
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            DataGridView dgv = sender as DataGridView;
+            
+            if (dgv.CurrentRow.Selected)
+            {
+                this.Hide();
+                var currentOrder = new currentOrder();
+                currentOrder.Show();
+            }
         }
 
 
@@ -166,6 +180,24 @@ namespace SR
                     this.textBox2.AutoCompleteCustomSource = collection;
                 }
             }
+        }
+
+        private void allOrders_DoubleClick(object sender, EventArgs e)
+        {
+           this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+           this.dataGridView1.MultiSelect = false;
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            var dataGridView = sender as DataGridView;
+            e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
+            e.CellStyle.Font = new Font("Arial", 9.5F, FontStyle.Bold);
+        }
+
+        private void dataGridView1_CellStyleChanged(object sender, DataGridViewCellEventArgs e)
+        {
+           
         }
     }
 }

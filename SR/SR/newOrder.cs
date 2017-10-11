@@ -224,12 +224,12 @@ namespace SR
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            textBox7.Text = monthCalendar1.SelectionRange.Start.ToShortDateString();
+            textBox7.Text = monthCalendar1.SelectionRange.Start.ToString("yyyy/MM/dd");
         }
 
         private void monthCalendar2_DateChanged(object sender, DateRangeEventArgs e)
         {
-            textBox6.Text = monthCalendar1.SelectionRange.Start.ToShortDateString();
+            textBox6.Text = monthCalendar1.SelectionRange.Start.ToString("yyyy/MM/dd");
         }
     }
 }
