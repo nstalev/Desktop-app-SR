@@ -103,6 +103,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Main";
             this.Text = "Главно меню";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

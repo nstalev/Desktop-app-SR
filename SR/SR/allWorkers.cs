@@ -83,7 +83,6 @@ namespace SR
 
         private void btn_deleteWorker_Click(object sender, EventArgs e)
         {
-
             if (comboBox1.SelectedValue == null)
             {
                 MessageBox.Show("Моля изберете работник");
@@ -93,7 +92,12 @@ namespace SR
                 DeleteWorker(comboBox1.SelectedValue.ToString());
             }
 
-           
+            DialogResult dialogResult = MessageBox.Show("Сигурни ли сте, че искате да изтриете работник с име: " + comboBox1.SelectedValue.ToString(), "Изтриване на работник.", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                DeleteWorker(comboBox1.SelectedValue.ToString());
+            }
         }
 
 
@@ -169,6 +173,21 @@ namespace SR
             }
 
             return listWitWorkers;
+        }
+
+        private void allWorkers_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Сигурни ли сте, че искате да затворите програмата ?", "Затваряне на програмата.", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

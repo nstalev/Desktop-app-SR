@@ -144,6 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1157, 717);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_deleteWorker);
@@ -155,8 +156,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Main6);
+            this.ForeColor = System.Drawing.Color.Red;
             this.Name = "allWorkers";
             this.Text = "Управление на работници";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.allWorkers_FormClosing);
             this.Load += new System.EventHandler(this.allWorkers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

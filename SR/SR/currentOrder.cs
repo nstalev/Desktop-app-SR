@@ -386,5 +386,20 @@ namespace SR
             e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
             e.CellStyle.Font = new Font("Arial", 9.5F, FontStyle.Bold);
         }
+
+        private void currentOrder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Сигурни ли сте, че искате да затворите програмата ?", "Затваряне на програмата.", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }
