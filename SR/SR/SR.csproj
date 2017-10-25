@@ -46,29 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="allOrders.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="allOrders.Designer.cs">
-      <DependentUpon>allOrders.cs</DependentUpon>
-    </Compile>
     <Compile Include="calcHours.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="calcHours.Designer.cs">
       <DependentUpon>calcHours.cs</DependentUpon>
-    </Compile>
-    <Compile Include="createWorker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="createWorker.Designer.cs">
-      <DependentUpon>createWorker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="deleteWorker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="deleteWorker.Designer.cs">
-      <DependentUpon>deleteWorker.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -90,17 +72,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="allOrders.resx">
-      <DependentUpon>allOrders.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="calcHours.resx">
       <DependentUpon>calcHours.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="createWorker.resx">
-      <DependentUpon>createWorker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="deleteWorker.resx">
-      <DependentUpon>deleteWorker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
