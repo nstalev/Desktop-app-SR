@@ -33,8 +33,7 @@
             this.newOrder = new System.Windows.Forms.Button();
             this.allOrders = new System.Windows.Forms.Button();
             this.calcHours = new System.Windows.Forms.Button();
-            this.btn_createWorker = new System.Windows.Forms.Button();
-            this.btn_deleteWorker = new System.Windows.Forms.Button();
+            this.btn_manageWorkers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,9 +45,11 @@
             this.pictureBox1.Size = new System.Drawing.Size(1202, 785);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // newOrder
             // 
+            this.newOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.newOrder.Location = new System.Drawing.Point(45, 158);
             this.newOrder.Name = "newOrder";
             this.newOrder.Size = new System.Drawing.Size(108, 57);
@@ -59,6 +60,7 @@
             // 
             // allOrders
             // 
+            this.allOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.allOrders.Location = new System.Drawing.Point(45, 221);
             this.allOrders.Name = "allOrders";
             this.allOrders.Size = new System.Drawing.Size(108, 57);
@@ -69,47 +71,39 @@
             // 
             // calcHours
             // 
+            this.calcHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.calcHours.Location = new System.Drawing.Point(45, 284);
             this.calcHours.Name = "calcHours";
             this.calcHours.Size = new System.Drawing.Size(108, 57);
             this.calcHours.TabIndex = 4;
-            this.calcHours.Text = "Изчисляване на работни часове и манипулации";
+            this.calcHours.Text = "Заплати";
             this.calcHours.UseVisualStyleBackColor = true;
             this.calcHours.Click += new System.EventHandler(this.calcHours_Click);
             // 
-            // btn_createWorker
+            // btn_manageWorkers
             // 
-            this.btn_createWorker.Location = new System.Drawing.Point(45, 347);
-            this.btn_createWorker.Name = "btn_createWorker";
-            this.btn_createWorker.Size = new System.Drawing.Size(108, 57);
-            this.btn_createWorker.TabIndex = 6;
-            this.btn_createWorker.Text = "Създай работник";
-            this.btn_createWorker.UseVisualStyleBackColor = true;
-            this.btn_createWorker.Click += new System.EventHandler(this.btn_createWorker_Click);
-            // 
-            // btn_deleteWorker
-            // 
-            this.btn_deleteWorker.Location = new System.Drawing.Point(45, 410);
-            this.btn_deleteWorker.Name = "btn_deleteWorker";
-            this.btn_deleteWorker.Size = new System.Drawing.Size(108, 57);
-            this.btn_deleteWorker.TabIndex = 7;
-            this.btn_deleteWorker.Text = "Изтрий работник";
-            this.btn_deleteWorker.UseVisualStyleBackColor = true;
-            this.btn_deleteWorker.Click += new System.EventHandler(this.btn_deleteWorker_Click);
+            this.btn_manageWorkers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_manageWorkers.Location = new System.Drawing.Point(45, 347);
+            this.btn_manageWorkers.Name = "btn_manageWorkers";
+            this.btn_manageWorkers.Size = new System.Drawing.Size(108, 57);
+            this.btn_manageWorkers.TabIndex = 5;
+            this.btn_manageWorkers.Text = "Работници";
+            this.btn_manageWorkers.UseVisualStyleBackColor = true;
+            this.btn_manageWorkers.Click += new System.EventHandler(this.btn_manageWorkers_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1201, 781);
-            this.Controls.Add(this.btn_deleteWorker);
-            this.Controls.Add(this.btn_createWorker);
+            this.Controls.Add(this.btn_manageWorkers);
             this.Controls.Add(this.calcHours);
             this.Controls.Add(this.allOrders);
             this.Controls.Add(this.newOrder);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Main";
             this.Text = "Главно меню";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -121,7 +115,6 @@
         private System.Windows.Forms.Button newOrder;
         private System.Windows.Forms.Button allOrders;
         private System.Windows.Forms.Button calcHours;
-        private System.Windows.Forms.Button btn_createWorker;
-        private System.Windows.Forms.Button btn_deleteWorker;
+        private System.Windows.Forms.Button btn_manageWorkers;
     }
 }

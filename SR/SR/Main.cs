@@ -37,22 +37,33 @@ namespace SR
             this.Hide();
             var calcHours = new calcHours();
             calcHours.Show();
-
-            MessageBox.Show("Това накрая ще го правим");
         }
 
-        private void btn_createWorker_Click(object sender, EventArgs e)
+        private void btn_manageWorkers_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var createWorker = new createWorker();
-            createWorker.Show();
+            var allWorkers = new allWorkers();
+            allWorkers.Show();
         }
 
-        private void btn_deleteWorker_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var deleteWorker = new deleteWorker();
-            deleteWorker.Show();
+
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Сигурни ли сте, че искате да затворите програмата ?", "Затваряне на програмата.", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
